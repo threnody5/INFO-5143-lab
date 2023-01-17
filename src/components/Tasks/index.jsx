@@ -3,18 +3,40 @@
 import React from 'react';
 import Task from './Task';
 
+import { v4 as uuid } from 'uuid';
+
 import 'bootstrap/dist/css/bootstrap.css';
 
 export default class Tasks extends React.Component {
   constructor(props) {
     super(props);
 
-    this.currentStatus = 'Not Completed';
+    this.state = {
+      currentStatus: [
+        {
+          id: uuid(),
+          title: 'Change car oil',
+          status: 'Not Completed',
+        },
+        {
+          id: uuid(),
+          title: 'Clean the litter box',
+          status: 'Not Completed',
+        },
+        {
+          id: uuid(),
+          title: 'Do laundry',
+          status: 'Not Completed',
+        },
+      ],
+    };
+    console.log(this.state.currentStatus);
   }
 
-  setStatus = () => {
-    // this.setState(this.currentStatus ? 'Not Completed' : 'Completed');
-    console.log('set status function is firing');
+  setStatus = (key) => {
+    // this.setState((this.state.currentStatus[key].status = 'Completed'));
+    // console.log(`set status function is firing at key ${key}`);
+    console.log(this.state.currentStatus[key]);
   };
 
   render() {
@@ -26,25 +48,35 @@ export default class Tasks extends React.Component {
         </div>
         <div className='container-fluid'>
           <div>
-            <Task
-              title='Change the oil'
-              id='0368b1f090d81293a0bf7b9a09452192'
-              //   status={this.currentStatus}
-            />
-          </div>
-          <div>
-            <Task
-              title='Clean the litter box'
-              id='d56702e763eb782a7b09030b3e1a554f'
-              status='Not Completed'
-            />
-          </div>
-          <div>
-            <Task
-              title='Do laundry'
-              id='f74a80349afac422dd3b4f72fca1f243'
-              status='Not Completed'
-            />
+            {this.state.currentStatus.map((task, key) => {
+              return (
+                <div key={task.id}>
+                  <Task
+                    id={task.id}
+                    title={task.title}
+                    status={task.status}
+                  />
+                  <div className=''>
+                    <button
+                      className='btn btn-warning btn-sm text-dark'
+                      onClick={() => {
+                        this.setStatus(key);
+                      }}
+                    >
+                      Change Status
+                    </button>
+                    <button
+                      className='btn btn-danger btn-sm text-dark'
+                      onClick={() => {
+                        console.log('Remove Task button works');
+                      }}
+                    >
+                      Remove Task
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </>

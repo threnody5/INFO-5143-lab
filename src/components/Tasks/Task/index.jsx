@@ -18,7 +18,7 @@ export default class Task extends React.Component {
         </div>
         <div>{this.props.id}</div>
         <div>{this.props.status}</div>
-        <div className=''>
+        {/* <div className=''>
           <button
             className='btn btn-warning btn-sm text-dark'
             onClick={() => {
@@ -35,7 +35,7 @@ export default class Task extends React.Component {
           >
             Remove Task
           </button>
-        </div>
+        </div> */}
       </div>
     );
   }
