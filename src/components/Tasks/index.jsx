@@ -12,7 +12,7 @@ export default class Tasks extends React.Component {
     super(props);
 
     this.state = {
-      userTask: [
+      taskList: [
         {
           id: uuid(),
           title: 'Change car oil',
@@ -30,18 +30,54 @@ export default class Tasks extends React.Component {
         },
       ],
     };
+    // console.log(this.state.taskList);
   }
 
-  setStatus = (key) => {
-    this.state.userTask.forEach((key) => {
 
-    })
-    if (this.state.userTask.id === key) {
-      console.log('The ID is:', key);
-    }
-    // this.setState((this.state.userTask[0].status = 'Completed'));
-    // console.log(id);
+  setStatus = (key) => {
+    this.state.taskList.forEach((task) => {
+      if (task.id === key) {
+        // task.status = 'Not Completed' ? 'Completed' : 'Not Completed';
+        if (task.status !== 'Completed') {
+          task.status = 'Completed';
+        } else if (task.status === 'Completed') {
+          task.status = 'Not Completed';
+        }
+      }
+      this.setState(task);
+    });
   };
+
+  removeTask = (key) => {
+    // for (let i = 0; i < this.state.taskList; i++) {
+    //   this.state.taskList.splice(i);
+    // }
+
+    this.state.taskList.forEach((task) => {
+      // for (let i = 0; i < task.length; i++) {
+        if (task.id !== key) {
+          let taskArray = [];
+          taskArray = task;
+          console.log(taskArray);
+
+          task = taskArray;
+
+          // console.log(task.id, key);
+          // console.log(this.state.taskList[i]);
+          // this.state.taskList.push(task[i]);
+          // console.log(task.id);
+          // for (let i = 0; i < this.state.taskList.length; i++) {
+          //   if (task.id === key) {
+          //     console.log(this.state.taskList[i]);
+          //   }
+        // this.state.taskList.splice(i, 1);
+          // }
+          // this.state.taskList.pop();
+        }
+      // }
+      this.setState(task);
+    })
+  }
 
   render() {
     return (
@@ -52,14 +88,16 @@ export default class Tasks extends React.Component {
         </div>
         <div className='container-fluid'>
           <div>
-            {this.state.userTask.map((task) => {
+            {this.state.taskList.map((task, key) => {
               return (
                 <div key={task.id}>
                   <Task
+                    key={key}
                     id={task.id}
                     title={task.title}
                     status={task.status}
                     setStatus={this.setStatus}
+                    removeTask={this.removeTask}
                   />
                 </div>
               );

@@ -9,6 +9,7 @@ export default class Task extends React.Component {
     super(props);
 
     this.setStatus = this.props.setStatus;
+    this.removeTask = this.props.removeTask;
     this.id = this.props.id;
   }
   render() {
@@ -32,7 +33,7 @@ export default class Task extends React.Component {
           <button
             className='btn btn-danger btn-sm text-dark'
             onClick={() => {
-              console.log('Remove Task button works');
+              this.removeTask(this.id);
             }}
           >
             Remove Task
