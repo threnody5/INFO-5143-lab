@@ -2,13 +2,14 @@
 
 import React from 'react';
 
-import Tasks from '..';
-
 import 'bootstrap/dist/css/bootstrap.css';
 
 export default class Task extends React.Component {
   constructor(props) {
     super(props);
+
+    this.setStatus = this.props.setStatus;
+    this.id = this.props.id;
   }
   render() {
     return (
@@ -18,11 +19,12 @@ export default class Task extends React.Component {
         </div>
         <div>{this.props.id}</div>
         <div>{this.props.status}</div>
-        {/* <div className=''>
+        <div className=''>
           <button
             className='btn btn-warning btn-sm text-dark'
+            style={{ marginRight: 10 }}
             onClick={() => {
-              Tasks.setStatus();
+              this.setStatus(this.id);
             }}
           >
             Change Status
@@ -35,7 +37,7 @@ export default class Task extends React.Component {
           >
             Remove Task
           </button>
-        </div> */}
+        </div>
       </div>
     );
   }

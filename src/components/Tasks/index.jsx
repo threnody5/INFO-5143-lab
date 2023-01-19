@@ -12,7 +12,7 @@ export default class Tasks extends React.Component {
     super(props);
 
     this.state = {
-      currentStatus: [
+      userTask: [
         {
           id: uuid(),
           title: 'Change car oil',
@@ -30,13 +30,17 @@ export default class Tasks extends React.Component {
         },
       ],
     };
-    console.log(this.state.currentStatus);
   }
 
   setStatus = (key) => {
-    // this.setState((this.state.currentStatus[key].status = 'Completed'));
-    // console.log(`set status function is firing at key ${key}`);
-    console.log(this.state.currentStatus[key]);
+    this.state.userTask.forEach((key) => {
+
+    })
+    if (this.state.userTask.id === key) {
+      console.log('The ID is:', key);
+    }
+    // this.setState((this.state.userTask[0].status = 'Completed'));
+    // console.log(id);
   };
 
   render() {
@@ -48,32 +52,15 @@ export default class Tasks extends React.Component {
         </div>
         <div className='container-fluid'>
           <div>
-            {this.state.currentStatus.map((task, key) => {
+            {this.state.userTask.map((task) => {
               return (
                 <div key={task.id}>
                   <Task
                     id={task.id}
                     title={task.title}
                     status={task.status}
+                    setStatus={this.setStatus}
                   />
-                  <div className=''>
-                    <button
-                      className='btn btn-warning btn-sm text-dark'
-                      onClick={() => {
-                        this.setStatus(key);
-                      }}
-                    >
-                      Change Status
-                    </button>
-                    <button
-                      className='btn btn-danger btn-sm text-dark'
-                      onClick={() => {
-                        console.log('Remove Task button works');
-                      }}
-                    >
-                      Remove Task
-                    </button>
-                  </div>
                 </div>
               );
             })}
