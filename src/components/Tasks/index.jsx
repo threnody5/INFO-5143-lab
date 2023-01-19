@@ -30,9 +30,8 @@ export default class Tasks extends React.Component {
         },
       ],
     };
-    // console.log(this.state.taskList);
+    console.log(this.state.taskList);
   }
-
 
   setStatus = (key) => {
     this.state.taskList.forEach((task) => {
@@ -49,50 +48,44 @@ export default class Tasks extends React.Component {
   };
 
   removeTask = (key) => {
-    // for (let i = 0; i < this.state.taskList; i++) {
-    //   this.state.taskList.splice(i);
-    // }
+    let taskArray = [];
+    let taskObject = [];
 
     this.state.taskList.forEach((task) => {
-      // for (let i = 0; i < task.length; i++) {
-        if (task.id !== key) {
-          let taskArray = [];
-          taskArray = task;
-          console.log(taskArray);
+      if (task.id !== key) {
+        taskArray.push(task);
+        taskObject = {
+          taskList: [
+            {
+              id: task.id,
+              title: task.title,
+              status: task.status,
+            },
+          ],
+          taskObject,
+        };
+      }
+    });
+    console.log(taskArray);
+    this.setState(taskObject);
 
-          task = taskArray;
-
-          // console.log(task.id, key);
-          // console.log(this.state.taskList[i]);
-          // this.state.taskList.push(task[i]);
-          // console.log(task.id);
-          // for (let i = 0; i < this.state.taskList.length; i++) {
-          //   if (task.id === key) {
-          //     console.log(this.state.taskList[i]);
-          //   }
-        // this.state.taskList.splice(i, 1);
-          // }
-          // this.state.taskList.pop();
-        }
-      // }
-      this.setState(task);
-    })
-  }
+    console.log(taskObject);
+  };
 
   render() {
     return (
       <>
         <div className='container-fluid mt-3'>
-          <h3>These are the tasks</h3>
+          <h3 style={{ marginLeft: 70 }}>These are the tasks</h3>
           <hr />
         </div>
         <div className='container-fluid'>
           <div>
             {this.state.taskList.map((task, key) => {
               return (
-                <div key={task.id}>
+                <div key={key}>
                   <Task
-                    key={key}
+                    key={task.id}
                     id={task.id}
                     title={task.title}
                     status={task.status}
