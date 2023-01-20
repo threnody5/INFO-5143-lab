@@ -8,7 +8,7 @@ import Task from './Task';
 import 'bootstrap/dist/css/bootstrap.css';
 
 export default function Tasks() {
-  const [task, setTask] = useState([
+  const [tasks, setTasks] = useState([
     {
       id: uuid(),
       title: 'Change Jeep oil',
@@ -27,23 +27,26 @@ export default function Tasks() {
   ]);
 
   const setTaskHandler = (id) => {
-    const updatedTask = [...task];
+    const updatedTask = [...tasks];
     updatedTask.forEach((selectedTask) => {
       if (selectedTask.id === id) {
-        // selectedTask.status = 'Completed' ? 'Not Completed' : 'Completed';
-        if (selectedTask.status !== 'Completed') {
-          selectedTask.status = 'Completed';
-        } else if (selectedTask.status === 'Completed') {
-          selectedTask.status = 'Not Completed';
-        }
+        selectedTask.status =
+          selectedTask.status === 'Completed' ? 'Not Completed' : 'Completed';
       }
     });
-    setTask(updatedTask);
+    setTasks(updatedTask);
   };
 
   const removeTaskHandler = (id) => {
-    const filteredTasks = task.filter((selectedTask) => selectedTask.id !== id);
-    setTask(filteredTasks);
+    const filteredTasks = tasks.filter(
+      (selectedTask) => selectedTask.id !== id
+    );
+    setTasks(filteredTasks);
+  };
+
+  const clearTasksHandler = () => {
+    const clearedTasks = [];
+    setTasks(clearedTasks);
   };
 
   return (
@@ -56,7 +59,7 @@ export default function Tasks() {
       </div>
       <div className='container-fluid'>
         <div>
-          {task.map((mappedTask, key) => {
+          {tasks.map((mappedTask, key) => {
             return (
               <div key={key}>
                 <Task
@@ -70,6 +73,18 @@ export default function Tasks() {
               </div>
             );
           })}
+        </div>
+        <hr />
+        <div>
+          <button
+            className='btn btn-warning'
+            style={{ marginLeft: 150}}
+            onClick={() => {
+              clearTasksHandler();
+            }}
+          >
+            Clear Tasks
+          </button>
         </div>
       </div>
     </>

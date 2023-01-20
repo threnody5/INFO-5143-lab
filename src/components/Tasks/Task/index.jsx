@@ -1,6 +1,6 @@
 /** @format */
 
-export default function Task({ id, title, status, setTask, removeTask }) {
+export default function Task({ id, title, status, setTask, removeTask}) {
   return (
     <div
       className='bg-dark pt-3 rounded'
@@ -9,12 +9,20 @@ export default function Task({ id, title, status, setTask, removeTask }) {
       <div>
         <h3 className='text-primary'>{title}</h3>
       </div>
-      <div className='text-white'>{id}</div>
-      <div className='text-white mb-3'>{status}</div>
+      <div className='text-white'>
+        <strong className='text-info'>ID: </strong>
+        {id}
+      </div>
+      <div className='text-white mb-3'>
+        <strong>Status: </strong>
+        <span style={{ color: status === 'Completed' ? '#28a745' : '#ffc107' }}>
+          {status}
+        </span>
+      </div>
       <div className=''>
         <button
           className='btn btn-info text-black'
-          style={{ marginRight: 50 }}
+          style={{ marginRight: 70 }}
           onClick={() => {
             setTask(id);
           }}
