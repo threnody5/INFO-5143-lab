@@ -12,17 +12,17 @@ export default function Tasks() {
     {
       id: uuid(),
       title: 'Change Jeep oil',
-      status: 'Not Completed',
+      status: 'Open',
     },
     {
       id: uuid(),
       title: 'Clean the kitchen',
-      status: 'Not Completed',
+      status: 'Open',
     },
     {
       id: uuid(),
       title: 'Rake the leaves',
-      status: 'Not Completed',
+      status: 'Open',
     },
   ]);
 
@@ -31,7 +31,7 @@ export default function Tasks() {
     updatedTask.forEach((selectedTask) => {
       if (selectedTask.id === id) {
         selectedTask.status =
-          selectedTask.status === 'Completed' ? 'Not Completed' : 'Completed';
+          selectedTask.status === 'Completed' ? 'Open' : 'Completed';
       }
     });
     setTasks(updatedTask);
@@ -77,7 +77,7 @@ export default function Tasks() {
         <hr />
         <div>
           <button
-            className='btn btn-warning'
+            className='btn btn-warning mb-5'
             style={{ marginLeft: 150}}
             onClick={() => {
               clearTasksHandler();
