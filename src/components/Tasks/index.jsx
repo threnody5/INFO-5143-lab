@@ -17,7 +17,7 @@ export default function Tasks() {
     {
       id: uuid(),
       title: 'Clean the kitchen',
-      status: 'No Completed',
+      status: 'Not Completed',
     },
     {
       id: uuid(),
@@ -27,14 +27,23 @@ export default function Tasks() {
   ]);
 
   const setTaskHandler = (id) => {
-    // const updatedPosts = [];
-    task.forEach((selectedTask) => {
+    const updatedTask = [...task];
+    updatedTask.forEach((selectedTask) => {
       if (selectedTask.id === id) {
-        selectedTask.status = 'Completed';
+        // selectedTask.status = 'Completed' ? 'Not Completed' : 'Completed';
+        if (selectedTask.status !== 'Completed') {
+          selectedTask.status = 'Completed';
+        } else if (selectedTask.status === 'Completed') {
+          selectedTask.status = 'Not Completed';
+        }
       }
-      console.log(selectedTask);
-      // setTask(selectedTask);
     });
+    setTask(updatedTask);
+  };
+
+  const removeTaskHandler = (id) => {
+    const filteredTasks = task.filter((selectedTask) => selectedTask.id !== id);
+    setTask(filteredTasks);
   };
 
   return (
@@ -51,12 +60,12 @@ export default function Tasks() {
             return (
               <div key={key}>
                 <Task
-                  key={mappedTask.id}
+                  key={key}
                   id={mappedTask.id}
                   title={mappedTask.title}
                   status={mappedTask.status}
                   setTask={setTaskHandler}
-                  //   removeTask={removeTask}
+                  removeTask={removeTaskHandler}
                 />
               </div>
             );

@@ -1,6 +1,6 @@
 /** @format */
 
-export default function Task({ id, title, status, setTask }) {
+export default function Task({ id, title, status, setTask, removeTask }) {
   return (
     <div
       className='bg-dark pt-3 rounded'
@@ -24,7 +24,7 @@ export default function Task({ id, title, status, setTask }) {
         <button
           className='btn btn-danger text-black'
           onClick={() => {
-            // this.removeTask(this.id);
+            removeTask(id);
           }}
         >
           Remove Task
