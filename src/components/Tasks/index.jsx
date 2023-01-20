@@ -54,17 +54,21 @@ export default class Tasks extends React.Component {
     this.state.taskList.forEach((task) => {
       if (task.id !== key) {
         taskArray.push(task);
-        taskObject = {
-          taskList: [
-            {
-              id: task.id,
-              title: task.title,
-              status: task.status,
-            },
-          ],
-          taskObject,
-        };
-      }
+        console.log(taskArray.length);
+        if (taskArray.length > 0) {
+          taskObject = {
+            taskList: [
+              {
+                id: task.id,
+                title: task.title,
+                status: task.status,
+              },
+            ],
+          };
+        } else {
+          taskArray = [];
+        }
+        }
     });
     console.log(taskArray);
     this.setState(taskObject);
@@ -76,7 +80,7 @@ export default class Tasks extends React.Component {
     return (
       <>
         <div className='container-fluid mt-3'>
-          <h3 style={{ marginLeft: 70 }}>These are the tasks</h3>
+          <h1 style={{ marginLeft: 15, fontWeight: 'bold' }}>These are the tasks</h1>
           <hr />
         </div>
         <div className='container-fluid'>

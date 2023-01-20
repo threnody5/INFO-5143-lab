@@ -16,17 +16,17 @@ export default class Task extends React.Component {
     return (
       <div
         className='bg-dark pt-3 rounded'
-        style={{ paddingLeft: 15, width: 400 }}
+        style={{ paddingLeft: 40, width: 400 }}
       >
         <div>
-          <h4 className='text-primary'>{this.props.title}</h4>
+          <h3 className='text-primary'>{this.props.title}</h3>
         </div>
         <div className='text-white'>{this.props.id}</div>
         <div className='text-white mb-3'>{this.props.status}</div>
         <div className=''>
           <button
             className='btn btn-info text-black'
-            style={{ marginRight: 10 }}
+            style={{ marginRight: 50 }}
             onClick={() => {
               this.setStatus(this.id);
             }}
