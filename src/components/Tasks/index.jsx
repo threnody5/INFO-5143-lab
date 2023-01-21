@@ -51,17 +51,21 @@ export default function Tasks() {
 
   return (
     <>
-      <div className='container-fluid mt-3'>
-        <h1 style={{ marginLeft: 15, fontWeight: 'bold' }}>
+      <div className='container-fluid mt-3 mb-3'>
+        <h1 style={{ fontWeight: 'bold', textAlign: 'center' }}>
           These are the tasks
         </h1>
-        <hr />
       </div>
-      <div className='container-fluid'>
-        <div>
+      <div className='container'>
+        <div 
+        style={{ display: 'flex', flexDirection: 'row', gap: 20, justifyContent: 'center' }}
+        className='mr-3'
+        >
           {tasks.map((mappedTask, key) => {
             return (
-              <div key={key}>
+              <div 
+              key={key}
+              >
                 <Task
                   key={key}
                   id={mappedTask.id}
@@ -74,11 +78,10 @@ export default function Tasks() {
             );
           })}
         </div>
-        <hr />
-        <div>
+        <div style={{ justifyContent: 'center', textAlign: 'center' }}>
           <button
             className='btn btn-warning mb-5'
-            style={{ marginLeft: 150}}
+            // style={{ marginLeft: 150 }}
             onClick={() => {
               clearTasksHandler();
             }}

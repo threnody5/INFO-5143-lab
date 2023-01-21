@@ -8,7 +8,7 @@ import bootstrapIcon from '../../icons/Bootstrap-icon.png';
 export default function Header() {
   return (
     <>
-      <nav className='navbar navbar-dark bg-dark'>
+      <nav className='navbar me-auto navbar-right navbar-dark bg-dark'>
         <div className=''>
           <img
             style={{ marginLeft: '10px', marginRight: '10px' }}
@@ -24,7 +24,7 @@ export default function Header() {
             width={35}
           />
           <span className='text-white'>
-            <strong style={{ marginLeft: '20px', marginRight: '20px' }}>
+            <strong style={{ marginLeft: '20px', marginRight: '20px', textAlign: 'right' }}>
               Todo App
             </strong>
           </span>
