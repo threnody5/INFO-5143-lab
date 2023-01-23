@@ -28,11 +28,12 @@ export default function Header() {
           className='justify-content-end'
           style={{ justifyContent: 'center' }}
         >
-          <span className='text-warning'>
+          <span className=''>
             <strong
               style={{
                 marginLeft: '20px',
                 marginRight: '20px',
+                color: '#6a5acd'
               }}
             >
               Todo App
