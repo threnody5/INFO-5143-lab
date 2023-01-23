@@ -8,10 +8,10 @@ import bootstrapIcon from '../../icons/Bootstrap-icon.png';
 export default function Header() {
   return (
     <>
-      <nav className='navbar me-auto navbar-right navbar-dark bg-dark'>
-        <div className=''>
+      <nav className='navbar navbar-dark bg-dark'>
+        <div className='justify-content-left'>
           <img
-            style={{ marginLeft: '10px', marginRight: '10px' }}
+            style={{ marginLeft: '20px', marginRight: '20px' }}
             src={reactIcon}
             alt=''
             height={28}
@@ -23,12 +23,25 @@ export default function Header() {
             height={33}
             width={35}
           />
-          <span className='text-white'>
-            <strong style={{ marginLeft: '20px', marginRight: '20px', textAlign: 'right' }}>
+        </div>
+        <div
+          className='justify-content-end'
+          style={{ justifyContent: 'center' }}
+        >
+          <span className='text-warning'>
+            <strong
+              style={{
+                marginLeft: '20px',
+                marginRight: '20px',
+              }}
+            >
               Todo App
             </strong>
           </span>
-          <span className='text-white'>
+          <span
+            className='text-info'
+            style={{ marginRight: 20 }}
+          >
             <strong>William Watson</strong>
           </span>
         </div>
