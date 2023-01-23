@@ -1,10 +1,12 @@
 /** @format */
 
+import './index.css';
+
 export default function Task({ id, title, status, setTask, removeTask }) {
   return (
     <div
+      id='task-container'
       className='bg-dark pt-3 rounded'
-      style={{ paddingLeft: 40, width: 400 }}
     >
       <div>
         <h3 className='text-primary'>{title}</h3>
@@ -22,7 +24,6 @@ export default function Task({ id, title, status, setTask, removeTask }) {
       <div className=''>
         <button
           className='btn btn-info text-black'
-          style={{ marginRight: 70 }}
           onClick={() => {
             setTask(id);
           }}
@@ -30,6 +31,7 @@ export default function Task({ id, title, status, setTask, removeTask }) {
           Change Status
         </button>
         <button
+          id='remove-task-button'
           className='btn btn-danger text-black'
           onClick={() => {
             removeTask(id);
