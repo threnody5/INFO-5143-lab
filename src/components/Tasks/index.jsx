@@ -6,6 +6,7 @@ import { v4 as uuid } from 'uuid';
 import Task from './Task';
 
 import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 
 export default function Tasks() {
   const [tasks, setTasks] = useState([
@@ -32,13 +33,13 @@ export default function Tasks() {
     {
       id: uuid(),
       title: 'Clean the litter box',
-      status: 'Open'
+      status: 'Open',
     },
     {
       id: uuid(),
       title: 'Do laundry',
-      status: 'Open'
-    }
+      status: 'Open',
+    },
   ]);
 
   const [countTasks, setCountTasks] = useState();
@@ -91,35 +92,32 @@ export default function Tasks() {
 
   return (
     <>
-      <div 
-      className='container-fluid mt-3 mb-3 bg-dark rounded'
-      style={{ width: 500, paddingTop: 20, paddingBottom: 20 }}
+      <div
+        id='tasks-container'
+        className='container-fluid mt-3 mb-3 bg-dark rounded'
       >
-        <h1 
-        className='text-primary'
-        style={{ fontWeight: 'bold', textAlign: 'center' }}>
+        <h1
+          id='task-counter'
+          className='text-primary'
+        >
           {displayedTasks}
         </h1>
-        <h3 
-        className='text-white'
-        style={{ fontWeight: 'bold', textAlign: 'center' }}>
+        <h3
+          id='task-counter'
+          className='text-white'
+        >
           Open Tasks: {openStatusCount}
         </h3>
-        <h3 
-        className='text-white'
-        style={{ fontWeight: 'bold', textAlign: 'center' }}>
+        <h3
+          id='task-counter'
+          className='text-white'
+        >
           Completed Tasks: {completedStatusCount}
         </h3>
       </div>
       <div className='container'>
         <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            gap: 20,
-            justifyContent: 'center',
-            flexWrap: 'wrap'
-          }}
+          id='tasks-list'
           className='mr-3'
         >
           {tasks.map((mappedTask, key) => {
@@ -137,7 +135,7 @@ export default function Tasks() {
             );
           })}
         </div>
-        <div style={{ justifyContent: 'center', textAlign: 'center' }}>
+        <div id='clear-tasks-button'>
           <button
             className='btn btn-warning mb-5'
             onClick={() => {

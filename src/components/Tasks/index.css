@@ -1,0 +1,23 @@
+#tasks-container {
+    width: 500px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#task-counter {
+    font-weight: bold;
+    text-align: center;
+}
+
+#tasks-list {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#clear-tasks-button {
+    justify-content: center;
+    text-align: center;
+}
