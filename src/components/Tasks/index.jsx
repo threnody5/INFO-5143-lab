@@ -24,6 +24,21 @@ export default function Tasks() {
       title: 'Rake the leaves',
       status: 'Open',
     },
+    {
+      id: uuid(),
+      title: 'Cut down that dead tree',
+      status: 'Open',
+    },
+    {
+      id: uuid(),
+      title: 'Clean the litter box',
+      status: 'Open'
+    },
+    {
+      id: uuid(),
+      title: 'Do laundry',
+      status: 'Open'
+    }
   ]);
 
   const [countTasks, setCountTasks] = useState();
@@ -76,14 +91,23 @@ export default function Tasks() {
 
   return (
     <>
-      <div className='container-fluid mt-3 mb-3'>
-        <h1 style={{ fontWeight: 'bold', textAlign: 'center' }}>
+      <div 
+      className='container-fluid mt-3 mb-3 bg-dark rounded'
+      style={{ width: 500, paddingTop: 20, paddingBottom: 20 }}
+      >
+        <h1 
+        className='text-primary'
+        style={{ fontWeight: 'bold', textAlign: 'center' }}>
           {displayedTasks}
         </h1>
-        <h3 style={{ fontWeight: 'bold', textAlign: 'center' }}>
+        <h3 
+        className='text-white'
+        style={{ fontWeight: 'bold', textAlign: 'center' }}>
           Open Tasks: {openStatusCount}
         </h3>
-        <h3 style={{ fontWeight: 'bold', textAlign: 'center' }}>
+        <h3 
+        className='text-white'
+        style={{ fontWeight: 'bold', textAlign: 'center' }}>
           Completed Tasks: {completedStatusCount}
         </h3>
       </div>
@@ -94,6 +118,7 @@ export default function Tasks() {
             flexDirection: 'row',
             gap: 20,
             justifyContent: 'center',
+            flexWrap: 'wrap'
           }}
           className='mr-3'
         >
