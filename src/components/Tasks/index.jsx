@@ -36,52 +36,37 @@ export default class Tasks extends React.Component {
   setStatus = (key) => {
     this.state.taskList.forEach((task) => {
       if (task.id === key) {
-        // task.status = 'Not Completed' ? 'Completed' : 'Not Completed';
-        if (task.status !== 'Completed') {
-          task.status = 'Completed';
-        } else if (task.status === 'Completed') {
-          task.status = 'Not Completed';
-        }
+        task.status =
+          task.status === 'Not Completed' ? 'Completed' : 'Not Completed';
       }
       this.setState(task);
     });
   };
 
-  removeTask = (key) => {
-    let taskArray = [];
-    let taskObject = [];
-
-    this.state.taskList.forEach((task) => {
-      if (task.id !== key) {
-        taskArray.push(task);
-        console.log(taskArray.length);
-        if (taskArray.length > 0) {
-          taskObject = {
-            taskList: [
-              {
-                id: task.id,
-                title: task.title,
-                status: task.status,
-              },
-            ],
-          };
-        } else {
-          taskArray = [];
-        }
-        }
+  removeTaskHandler = (id) => {
+    const filteredTasks = this.state.taskList.filter(
+      (selectedTask) => selectedTask.id !== id
+    );
+    console.log(filteredTasks);
+    this.setState({
+      taskList: filteredTasks
     });
-    console.log(taskArray);
-    this.setState(taskObject);
+  };
 
-    console.log(taskObject);
+  clearTasksHandler = () => {
+    const clearedTasks = [];
+    this.setState({
+      taskList: clearedTasks
+    });
   };
 
   render() {
     return (
       <>
         <div className='container-fluid mt-3'>
-          <h1 style={{ marginLeft: 15, fontWeight: 'bold' }}>These are the tasks</h1>
-          <hr />
+          <h1 style={{ marginLeft: 15, fontWeight: 'bold' }}>
+            These are the tasks
+          </h1>
         </div>
         <div className='container-fluid'>
           <div>
@@ -94,11 +79,14 @@ export default class Tasks extends React.Component {
                     title={task.title}
                     status={task.status}
                     setStatus={this.setStatus}
-                    removeTask={this.removeTask}
+                    removeTask={this.removeTaskHandler}
                   />
                 </div>
               );
             })}
+          </div>
+          <div>
+            <button className='btn btn-warning' onClick={() => {this.clearTasksHandler()}}>Clear Tasks</button>
           </div>
         </div>
       </>

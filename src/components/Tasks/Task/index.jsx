@@ -16,13 +16,22 @@ export default class Task extends React.Component {
     return (
       <div
         className='bg-dark pt-3 rounded'
-        style={{ paddingLeft: 40, width: 400 }}
+        style={{ paddingLeft: 40, width: 450 }}
       >
         <div>
           <h3 className='text-primary'>{this.props.title}</h3>
         </div>
-        <div className='text-white'>{this.props.id}</div>
-        <div className='text-white mb-3'>{this.props.status}</div>
+        <div>
+          <span className='text-info'><strong>ID: </strong></span>
+          <span className='text-white'>{this.props.id}</span>
+        </div>
+        <div>
+          <span className='text-info'><strong>Status: </strong></span>
+          <span 
+          className='mb-3'
+          style={{ color: '#E4A11B' }}
+          >{this.props.status}</span>
+        </div>
         <div className=''>
           <button
             className='btn btn-info text-black'
