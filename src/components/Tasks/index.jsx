@@ -8,7 +8,11 @@ import Task from './Task';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
+/**
+ * Component that renders the Tasks list.
+ */
 export default function Tasks() {
+  // List of hardcoded tasks.
   const [tasks, setTasks] = useState([
     {
       id: uuid(),
@@ -48,6 +52,12 @@ export default function Tasks() {
 
   let displayedTasks;
 
+  /**
+   * useEffect hook that tracks states of the tasks list.
+   * - Monitors the length of the tasks list.
+   * - Monitors the amount of tasks set to 'Open'.
+   * - Monitors the amount of tasks set to 'Completed'.
+   */
   useEffect(() => {
     const currentTasks = tasks.filter((task) => task).length;
     setCountTasks(currentTasks);
@@ -59,6 +69,12 @@ export default function Tasks() {
     setCompletedStatusCount(completedTasks);
   });
 
+  /**
+   * Handler function for setting the status of the selected task.
+   * - Sets selected status to 'Completed' if task is 'Open'.
+   * - Sets selected status to 'Open' if task is 'Completed'.
+   * - Passes the updated array to the 'tasks' array.
+   */
   const setTaskHandler = (id) => {
     const updatedTask = [...tasks];
     updatedTask.forEach((selectedTask) => {
@@ -70,6 +86,12 @@ export default function Tasks() {
     setTasks(updatedTask);
   };
 
+  /**
+   * Handler function for removing the selected task from the list.
+   * - Filters through the 'tasks' array for id's that do not match the selected id.
+   * - Passes objects that do not match to a new array.
+   * -  Passes the updated array to the 'tasks' array.
+   */
   const removeTaskHandler = (id) => {
     const filteredTasks = tasks.filter(
       (selectedTask) => selectedTask.id !== id
@@ -77,11 +99,19 @@ export default function Tasks() {
     setTasks(filteredTasks);
   };
 
+  /**
+   * Handler function for removing all tasks from the list.
+   * - Creates a new empty array.
+   * - Passes the empty array to the 'tasks' array.
+   */
   const clearTasksHandler = () => {
     const clearedTasks = [];
     setTasks(clearedTasks);
   };
 
+  /**
+   * Updates the 'displayedTasks' string depending on length of the 'countTasks' array.
+   */
   if (countTasks > 1) {
     displayedTasks = `There are ${countTasks} tasks remaining`;
   } else if (countTasks == 0) {

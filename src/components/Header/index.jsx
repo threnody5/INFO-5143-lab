@@ -6,6 +6,9 @@ import './index.css';
 import reactIcon from '../../icons/React-icon.png';
 import bootstrapIcon from '../../icons/Bootstrap-icon.png';
 
+/**
+ * Component that renders the header navbar.
+ */
 export default function Header() {
   return (
     <>

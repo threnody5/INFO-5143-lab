@@ -2,6 +2,9 @@
 
 import './index.css';
 
+/**
+ * Component that renders the Task.
+ */
 export default function Task({ id, title, status, setTask, removeTask }) {
   return (
     <div
