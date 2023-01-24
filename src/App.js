@@ -1,7 +1,5 @@
 /** @format */
 
-import './App.css';
-
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 
