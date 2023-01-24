@@ -67,7 +67,7 @@ export default function Tasks() {
       (task) => task.status === 'Completed'
     ).length;
     setCompletedStatusCount(completedTasks);
-  });
+  }, [tasks]);
 
   /**
    * Handler function for setting the status of the selected task.
@@ -114,7 +114,7 @@ export default function Tasks() {
    */
   if (countTasks > 1) {
     displayedTasks = `There are ${countTasks} tasks remaining`;
-  } else if (countTasks == 0) {
+  } else if (countTasks === 0) {
     displayedTasks = `There are no tasks remaining`;
   } else {
     displayedTasks = `There is ${countTasks} task remaining`;
