@@ -1,7 +1,7 @@
 /** @format */
 
 import { useState, useEffect } from 'react';
-import { v4 as uuid } from 'uuid';
+// import { v4 as uuid } from 'uuid';
 
 import Task from './Task';
 
@@ -11,41 +11,7 @@ import './index.css';
 /**
  * Component that renders the Tasks list.
  */
-export default function Tasks() {
-  // List of hardcoded tasks.
-  const [tasks, setTasks] = useState([
-    {
-      id: uuid(),
-      title: 'Change Jeep oil',
-      status: 'Open',
-    },
-    {
-      id: uuid(),
-      title: 'Clean the kitchen',
-      status: 'Open',
-    },
-    {
-      id: uuid(),
-      title: 'Rake the leaves',
-      status: 'Open',
-    },
-    {
-      id: uuid(),
-      title: 'Cut down that dead tree',
-      status: 'Open',
-    },
-    {
-      id: uuid(),
-      title: 'Clean the litter box',
-      status: 'Open',
-    },
-    {
-      id: uuid(),
-      title: 'Do laundry',
-      status: 'Open',
-    },
-  ]);
-
+export default function Tasks({ tasks, setTasks }) {
   const [countTasks, setCountTasks] = useState();
   const [openStatusCount, setOpenStatusCount] = useState();
   const [completedStatusCount, setCompletedStatusCount] = useState();

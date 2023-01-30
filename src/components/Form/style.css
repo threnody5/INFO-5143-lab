@@ -1,0 +1,15 @@
+#new-task-container {
+    width: 500px;
+    
+    padding-bottom: 20px;
+}
+
+#add-task-text {
+    padding-top: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#add-task-field {
+    text-align: center;
+}
