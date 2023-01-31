@@ -2,21 +2,23 @@
 
 import './style.css';
 
+/**
+ * Component that renders the Form for the user.
+ * - Field that allows the user to set a task description.
+ * - Dropdown field that allows the user to select a status.
+ */
 export default function Form({
   addTask,
   description,
   setDescription,
-  setSelectedStatus,
+  setSelectedValue,
+  statusList,
+  selectedValue,
   errorMessage,
 }) {
-  const statusList = [
-    {
-      status: 'Open',
-    },
-    {
-      status: 'Completed',
-    },
-  ];
+  const handleChange = (e) => {
+    setSelectedValue(e.target.value);
+  };
 
   return (
     <div
@@ -27,10 +29,12 @@ export default function Form({
         <div className='container-fluid'>
           <h2
             id='add-task-text'
-            className='text-white'
+            className='text-primary'
           >
             Add a new task:{' '}
           </h2>
+          {/* Conditional rendering for displaying the list of errors to 
+          the users if the errorMessage array has a length greater than 0 */}
           {errorMessage.length > 0 && (
             <div className='text-white'>
               Missing Data:
@@ -43,11 +47,13 @@ export default function Form({
           )}
         </div>
         <div
-          id='add-task-field'
+          id='add-task-fields'
           className='container'
         >
           <div className='form-group'>
             <label className='text-white'>
+              {/* Field that allows the user to enter in the description 
+              that they desire for the task they're adding */}
               Description:
               <input
                 className='form-control'
@@ -60,17 +66,22 @@ export default function Form({
               />
             </label>
             <span>
-              <label className='text-white'>
+              <label
+                id='dropbox-field'
+                className='text-white'
+              >
+                {/* Dropdown menu that allows the user to select 
+                if the task they're adding is 'Open' or 'Completed */}
                 Status:
-                <select className='form-control'>
-                  <option value=''>-- Select --</option>
+                <select
+                  className='form-control'
+                  value={selectedValue}
+                  onChange={handleChange}
+                >
                   {statusList.map((item, index) => (
                     <option
                       key={index}
-                      value={item.status}
-                      onClick={(e) => {
-                        setSelectedStatus(e.target.value);
-                      }}
+                      value={item.value}
                     >
                       {item.status}
                     </option>
@@ -79,8 +90,10 @@ export default function Form({
               </label>
             </span>
             <div>
+              {/* Button to add the task to the task list */}
               <button
-                className='btn btn-primary'
+                id='add-button'
+                className='btn btn-success mt-3 mb-3'
                 onClick={addTask}
               >
                 Add

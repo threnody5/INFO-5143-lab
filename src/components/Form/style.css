@@ -1,6 +1,5 @@
 #new-task-container {
-    width: 500px;
-    
+    width: 600px;
     padding-bottom: 20px;
 }
 
@@ -10,6 +9,15 @@
     text-align: center;
 }
 
-#add-task-field {
+#add-task-fields {
     text-align: center;
+}
+
+#dropbox-field {
+    margin-left: 20px;
+}
+
+#add-button {
+    padding-left: 40px;
+    padding-right: 40px;
 }

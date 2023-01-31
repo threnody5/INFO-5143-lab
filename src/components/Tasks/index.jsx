@@ -1,7 +1,6 @@
 /** @format */
 
 import { useState, useEffect } from 'react';
-// import { v4 as uuid } from 'uuid';
 
 import Task from './Task';
 
@@ -75,9 +74,7 @@ export default function Tasks({ tasks, setTasks }) {
     setTasks(clearedTasks);
   };
 
-  /**
-   * Updates the 'displayedTasks' string depending on length of the 'countTasks' array.
-   */
+  // Updates the 'displayedTasks' string depending on length of the 'countTasks' array.
   if (countTasks > 1) {
     displayedTasks = `There are ${countTasks} tasks remaining`;
   } else if (countTasks === 0) {
@@ -98,24 +95,30 @@ export default function Tasks({ tasks, setTasks }) {
         >
           {displayedTasks}
         </h1>
-        <h3
-          id='task-counter'
-          className='text-white'
-        >
-          Open Tasks: {openStatusCount}
-        </h3>
-        <h3
-          id='task-counter'
-          className='text-white'
-        >
-          Completed Tasks: {completedStatusCount}
-        </h3>
+        {/* If tasks has a length greater than 0, renders the amount of open tasks, and completed tasks */}
+        {tasks.length > 0 && (
+          <div>
+            <h3
+              id='task-counter'
+              className='text-white'
+            >
+              Open Tasks: {openStatusCount}
+            </h3>
+            <h3
+              id='task-counter'
+              className='text-white'
+            >
+              Completed Tasks: {completedStatusCount}
+            </h3>
+          </div>
+        )}
       </div>
       <div className='container'>
         <div
           id='tasks-list'
           className='mr-3'
         >
+          {/* Maps through the tasks array and outputs each task */}
           {tasks.map((mappedTask, key) => {
             return (
               <div key={key}>
@@ -131,16 +134,19 @@ export default function Tasks({ tasks, setTasks }) {
             );
           })}
         </div>
-        <div id='clear-tasks-button'>
-          <button
-            className='btn btn-warning mb-5'
-            onClick={() => {
-              clearTasksHandler();
-            }}
-          >
-            Clear Tasks
-          </button>
-        </div>
+        {/* If the tasks length is greater than 0, renders the Clear Tasks button */}
+        {tasks.length > 0 && (
+          <div id='clear-tasks-button'>
+            <button
+              className='btn btn-warning mb-5'
+              onClick={() => {
+                clearTasksHandler();
+              }}
+            >
+              Clear Tasks
+            </button>
+          </div>
+        )}
       </div>
     </>
   );
