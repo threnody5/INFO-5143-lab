@@ -21,22 +21,14 @@ export default function Form({
   };
 
   return (
-    <div
-      id='new-task-container'
-      className='container'
-    >
-      <form className='mt-3 mb-3 bg-dark rounded'>
-        <div className='container-fluid'>
-          <h2
-            id='add-task-text'
-            className='text-primary'
-          >
-            Add a new task:{' '}
-          </h2>
+    <div>
+      <form>
+        <div>
+          <h2>Add a new task: </h2>
           {/* Conditional rendering for displaying the list of errors to 
           the users if the errorMessage array has a length greater than 0 */}
           {errorMessage.length > 0 && (
-            <div className='text-white'>
+            <div>
               Missing Data:
               <ul>
                 {errorMessage.map((error, index) => (
@@ -46,17 +38,13 @@ export default function Form({
             </div>
           )}
         </div>
-        <div
-          id='add-task-fields'
-          className='container'
-        >
-          <div className='form-group'>
-            <label className='text-white'>
+        <div>
+          <div>
+            <label>
               {/* Field that allows the user to enter in the description 
               that they desire for the task they're adding */}
               Description:
               <input
-                className='form-control'
                 type='text'
                 placeholder='Description here'
                 value={description}
@@ -66,15 +54,11 @@ export default function Form({
               />
             </label>
             <span>
-              <label
-                id='dropbox-field'
-                className='text-white'
-              >
+              <label>
                 {/* Dropdown menu that allows the user to select 
                 if the task they're adding is 'Open' or 'Completed */}
                 Status:
                 <select
-                  className='form-control'
                   value={selectedValue}
                   onChange={handleChange}
                 >
@@ -91,13 +75,7 @@ export default function Form({
             </span>
             <div>
               {/* Button to add the task to the task list */}
-              <button
-                id='add-button'
-                className='btn btn-success mt-3 mb-3'
-                onClick={addTask}
-              >
-                Add
-              </button>
+              <button onClick={addTask}>Add</button>
             </div>
           </div>
         </div>

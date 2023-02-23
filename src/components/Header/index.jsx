@@ -1,6 +1,5 @@
 /** @format */
 
-import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
 import reactIcon from '../../icons/React-icon.png';
@@ -12,8 +11,8 @@ import bootstrapIcon from '../../icons/Bootstrap-icon.png';
 export default function Header() {
   return (
     <>
-      <nav className='navbar navbar-dark bg-dark'>
-        <div className='justify-content-left'>
+      <nav>
+        <div>
           <img
             id='react-icon'
             src={reactIcon}
@@ -29,14 +28,11 @@ export default function Header() {
             width={35}
           />
         </div>
-        <div className='justify-content-end'>
-          <span className=''>
-            <strong id='todo-app-text'>Todo App</strong>
+        <div>
+          <span>
+            <strong>Todo App</strong>
           </span>
-          <span
-            id='name-text'
-            className='text-info'
-          >
+          <span>
             <strong>William Watson</strong>
           </span>
         </div>

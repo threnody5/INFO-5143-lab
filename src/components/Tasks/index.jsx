@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 
 import Task from './Task';
 
-import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
 /**
@@ -85,39 +84,18 @@ export default function Tasks({ tasks, setTasks }) {
 
   return (
     <>
-      <div
-        id='tasks-container'
-        className='container-fluid mt-3 mb-3 bg-dark rounded'
-      >
-        <h1
-          id='task-counter'
-          className='text-primary'
-        >
-          {displayedTasks}
-        </h1>
+      <div>
+        <h1>{displayedTasks}</h1>
         {/* If tasks has a length greater than 0, renders the amount of open tasks, and completed tasks */}
         {tasks.length > 0 && (
           <div>
-            <h3
-              id='task-counter'
-              className='text-white'
-            >
-              Open Tasks: {openStatusCount}
-            </h3>
-            <h3
-              id='task-counter'
-              className='text-white'
-            >
-              Completed Tasks: {completedStatusCount}
-            </h3>
+            <h3>Open Tasks: {openStatusCount}</h3>
+            <h3>Completed Tasks: {completedStatusCount}</h3>
           </div>
         )}
       </div>
-      <div className='container'>
-        <div
-          id='tasks-list'
-          className='mr-3'
-        >
+      <div>
+        <div>
           {/* Maps through the tasks array and outputs each task */}
           {tasks.map((mappedTask, key) => {
             return (
@@ -136,9 +114,8 @@ export default function Tasks({ tasks, setTasks }) {
         </div>
         {/* If the tasks length is greater than 0, renders the Clear Tasks button */}
         {tasks.length > 0 && (
-          <div id='clear-tasks-button'>
+          <div>
             <button
-              className='btn btn-warning mb-5'
               onClick={() => {
                 clearTasksHandler();
               }}
