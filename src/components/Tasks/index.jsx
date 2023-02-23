@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 import Task from './Task';
 
-import './index.css';
+import './styles.scss';
 
 /**
  * Component that renders the Tasks list.

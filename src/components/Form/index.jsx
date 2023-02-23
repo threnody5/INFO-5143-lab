@@ -1,6 +1,6 @@
 /** @format */
 
-import './style.css';
+import './styles.scss';
 
 /**
  * Component that renders the Form for the user.

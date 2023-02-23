@@ -1,6 +1,6 @@
 /** @format */
 
-import './index.css';
+import './styles.scss';
 
 import reactIcon from '../../icons/React-icon.png';
 import bootstrapIcon from '../../icons/Bootstrap-icon.png';

@@ -1,6 +1,6 @@
 /** @format */
 
-import './index.css';
+import './styles.scss';
 
 /**
  * Component that renders the Task.
