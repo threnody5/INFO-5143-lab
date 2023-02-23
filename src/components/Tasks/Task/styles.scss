@@ -48,8 +48,4 @@ div.task-container {
             margin-left: 0.5rem;
         }
     }
-
-    @include breakpoint-small {
-        margin: 1rem 0.8rem 1rem 0.8rem;
-    }
 }
