@@ -84,47 +84,47 @@ export default function Tasks({ tasks, setTasks }) {
 
   return (
     <>
-      <div>
-        <h1>{displayedTasks}</h1>
-        {/* If tasks has a length greater than 0, renders the amount of open tasks, and completed tasks */}
-        {tasks.length > 0 && (
-          <div>
-            <h3>Open Tasks: {openStatusCount}</h3>
-            <h3>Completed Tasks: {completedStatusCount}</h3>
-          </div>
-        )}
-      </div>
-      <div>
-        <div>
-          {/* Maps through the tasks array and outputs each task */}
-          {tasks.map((mappedTask, key) => {
-            return (
-              <div key={key}>
-                <Task
-                  key={key}
-                  id={mappedTask.id}
-                  title={mappedTask.title}
-                  status={mappedTask.status}
-                  setTask={setTaskHandler}
-                  removeTask={removeTaskHandler}
-                />
-              </div>
-            );
-          })}
-        </div>
-        {/* If the tasks length is greater than 0, renders the Clear Tasks button */}
-        {tasks.length > 0 && (
-          <div>
-            <button
-              onClick={() => {
-                clearTasksHandler();
-              }}
+      {/* <div> */}
+      {/* <h1>{displayedTasks}</h1> */}
+      {/* If tasks has a length greater than 0, renders the amount of open tasks, */}
+      {/* and completed tasks */}
+      {/* {tasks.length > 0 && ( */}
+      {/* <div> */}
+      {/* <h3>Open Tasks: {openStatusCount}</h3> */}
+      {/* <h3>Completed Tasks: {completedStatusCount}</h3> */}
+      {/* </div> */}
+      {/* )} */}
+      {/* </div> */}
+      {/* Maps through the tasks array and outputs each task */}
+      <div className='tasks'>
+        {tasks.map((mappedTask, key) => {
+          return (
+            <div
+              className='task'
+              key={key}
             >
-              Clear Tasks
-            </button>
-          </div>
-        )}
+              <Task
+                key={key}
+                id={mappedTask.id}
+                title={mappedTask.title}
+                status={mappedTask.status}
+                setTask={setTaskHandler}
+                removeTask={removeTaskHandler}
+              />
+            </div>
+          );
+        })}
       </div>
+      {/* If the tasks length is greater than 0, renders the Clear Tasks button */}
+      {tasks.length > 0 && (
+        <button
+          onClick={() => {
+            clearTasksHandler();
+          }}
+        >
+          Clear Tasks
+        </button>
+      )}
     </>
   );
 }

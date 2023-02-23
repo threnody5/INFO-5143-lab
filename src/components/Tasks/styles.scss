@@ -1,0 +1,15 @@
+@import './../../styles/variables.scss';
+
+div.tasks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3.5rem;
+
+    .task {
+        margin: 0 1rem 0 1rem;
+    }
+    
+}
