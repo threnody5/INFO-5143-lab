@@ -1,0 +1,11 @@
+$background-color: #e8f1f2;
+$backdrop-color: #2d3047;
+$text-color: #e2c044;
+$button-color: #2d82b7;
+$success-color: #629677;
+
+@mixin icon-size($height, $width) {
+    height: $height;
+    width: $width;
+    @content;
+}
