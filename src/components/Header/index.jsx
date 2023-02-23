@@ -11,24 +11,20 @@ import bootstrapIcon from '../../icons/Bootstrap-icon.png';
 export default function Header() {
   return (
     <>
-      <nav>
-        <div>
+      <nav className='header-container'>
+        <div className='header-icons'>
           <img
-            id='react-icon'
+            className='react-icon'
             src={reactIcon}
             alt=''
-            height={28}
-            width={35}
           />
           <img
-            id='bootstrap-icon'
+            className='bootstrap-icon'
             src={bootstrapIcon}
             alt=''
-            height={33}
-            width={35}
           />
         </div>
-        <div>
+        <div className='header-text'>
           <span>
             <strong>Todo App</strong>
           </span>

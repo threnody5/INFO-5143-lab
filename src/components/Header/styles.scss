@@ -1,0 +1,30 @@
+@import './../../styles/variables.scss';
+
+nav.header-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: $backdrop-color;
+
+    .header-icons img {
+        margin: 0.5rem;
+    }
+    
+    .react-icon {
+        @include icon-size(28px, 35px);
+        padding-bottom: 0.1rem;
+    }
+
+    .bootstrap-icon {
+        @include icon-size(33px, 35px);
+    }
+
+    .header-text {
+        margin-top: 1rem;
+        margin-right: 1rem;
+
+        span {
+            margin: 1rem;
+            color: $text-color;
+        }
+    }
+}
