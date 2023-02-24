@@ -1,0 +1,96 @@
+@import './../../styles/variables.scss';
+
+.formContainer {
+    display: block;
+    text-align: center;
+    max-width: 600px;
+    margin-bottom: 1rem;
+
+    .header {
+        padding-top: 1rem;
+    }
+
+    input[type='text'],
+    select {
+        box-sizing: border-box;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+        width: 70%;
+        margin: 0.5rem 0 0.5rem 0;
+        padding: 0.5rem;
+    }
+
+    .addButtonContainer {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .errorForm {
+        width: 50%;
+        margin: auto;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-weight: bold;
+
+        ul {
+            text-align: left;
+
+            @include breakpoint-small {
+                margin-left: -3rem;
+                margin-right: auto;
+
+            }
+        }
+    }
+
+    @include breakpoint-small {
+        width: 400px;
+    }
+}
+
+.dark {
+    .addButton {
+        @include button($dark-button-color, $dark-backdrop-color);
+    }
+
+    .header {
+        color: $dark-title-color;
+    }
+
+    input[type='text'],
+    select {
+        border: solid 1px $dark-button-color;
+        background-color: $dark-backdrop-color;
+        border-bottom: solid 5px $dark-button-color;
+        color: $dark-text-color;
+    }
+
+    .errorForm {
+        color: $dark-danger-color;
+    }
+}
+
+.light {
+    .addButton {
+        @include button($light-button-color, $light-backdrop-color);
+    }
+
+    .header {
+        color: $light-title-color;
+    }
+
+    input[type='text'],
+    select {
+        border: solid 1px $light-button-color;
+        background-color: $light-backdrop-color;
+        border-bottom: solid 5px $light-button-color;
+        color: $light-text-color;
+    }
+
+    .errorForm {
+        color: $light-danger-color;
+    }
+}

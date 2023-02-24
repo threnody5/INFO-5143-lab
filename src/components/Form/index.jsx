@@ -1,6 +1,10 @@
 /** @format */
 
-import './styles.scss';
+import { useContext } from 'react';
+
+import { ThemeContext } from '../ThemeContext';
+
+import styles from './styles.module.scss';
 
 import Card from '../Card';
 
@@ -18,34 +22,34 @@ export default function Form({
   selectedValue,
   errorMessage,
 }) {
+  const { theme } = useContext(ThemeContext);
   const handleChange = (e) => {
     setSelectedValue(e.target.value);
   };
 
   return (
-    <Card className='form-container'>
-      <form>
-        <div>
-          <h2>ADD A NEW TASK: </h2>
-          {/* Conditional rendering for displaying the list of errors to 
+    <Card className={`${styles.formContainer}`}>
+      <form className={`${styles[theme]}`}>
+        <h2 className={`${styles.header} ${styles[theme]}`}>
+          ADD A NEW TASK:{' '}
+        </h2>
+        {/* Conditional rendering for displaying the list of errors to 
           the users if the errorMessage array has a length greater than 0 */}
-          {errorMessage.length > 0 && (
-            <div className='error-form'>
-              Missing Data:
-              <ul>
-                {errorMessage.map((error, index) => (
-                  <li key={index}>{error}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+        {errorMessage.length > 0 && (
+          <div className={`${styles.errorForm}`}>
+            Missing Data:
+            <ul>
+              {errorMessage.map((error, index) => (
+                <li key={index}>{error}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div>
           <div>
-            <label className='form-description'>
+            <label>
               {/* Field that allows the user to enter in the description 
               that they desire for the task they're adding */}
-              {/* Description: */}
               <input
                 title='Enter a description.'
                 type='text'
@@ -60,7 +64,6 @@ export default function Form({
               <label>
                 {/* Dropdown menu that allows the user to select 
                 if the task they're adding is 'Open' or 'Completed */}
-                {/* Status: */}
                 <select
                   title='Choose an option.'
                   value={selectedValue}
@@ -77,10 +80,9 @@ export default function Form({
                 </select>
               </label>
             </span>
-            <div>
-              {/* Button to add the task to the task list */}
+            <div className={`${styles.addButtonContainer}`}>
               <button
-                className='add-button'
+                className={`${styles.addButton}`}
                 onClick={addTask}
               >
                 Add
