@@ -115,16 +115,19 @@ export default function Tasks({ tasks, setTasks }) {
           );
         })}
       </div>
-      {/* If the tasks length is greater than 0, renders the Clear Tasks button */}
-      {tasks.length > 0 && (
-        <button
-          onClick={() => {
-            clearTasksHandler();
-          }}
-        >
-          Clear Tasks
-        </button>
-      )}
+      <div className='button-container'>
+        {/* If the tasks length is greater than 0, renders the Clear Tasks button */}
+        {tasks.length > 0 && (
+          <button
+            className='clear-button'
+            onClick={() => {
+              clearTasksHandler();
+            }}
+          >
+            Clear Tasks
+          </button>
+        )}
+      </div>
     </>
   );
 }
