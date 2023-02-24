@@ -5,24 +5,19 @@ import './styles.scss';
 import reactIcon from '../../icons/React-icon.png';
 import bootstrapIcon from '../../icons/Bootstrap-icon.png';
 
+import { SiSass } from 'react-icons/si';
+import { FaReact } from 'react-icons/fa';
+
 /**
  * Component that renders the header navbar.
  */
 export default function Header() {
   return (
-    <>
-      <nav className='header-container'>
+    <div className='header-container'>
+      <nav>
         <div className='header-icons'>
-          <img
-            className='react-icon'
-            src={reactIcon}
-            alt=''
-          />
-          <img
-            className='bootstrap-icon'
-            src={bootstrapIcon}
-            alt=''
-          />
+          <FaReact className='react-icon' />
+          <SiSass className='sass-icon' />
         </div>
         <div className='header-text'>
           <span>
@@ -33,6 +28,6 @@ export default function Header() {
           </span>
         </div>
       </nav>
-    </>
+    </div>
   );
 }

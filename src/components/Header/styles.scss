@@ -1,25 +1,42 @@
 @import './../../styles/variables.scss';
 
-nav.header-container {
-    display: flex;
-    justify-content: space-between;
+div .header-container {
+
     background-color: $backdrop-color;
-
-    .header-icons img {
-        margin: 0.5rem;
-    }
     
-    .react-icon {
-        @include icon-size(28px, 35px);
-        padding-bottom: 0.1rem;
+    nav {
+        height: 3rem;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .header-icons {
+            .react-icon {
+                @include icon-size(30px, 30px);
+                color: #61dbfb;
+                padding-top: 0.5rem;
+                margin-left: 1rem;
+                margin-right: 1rem;
+                // padding-bottom: 0.1rem;
+            }
+
+            .sass-icon {
+                @include icon-size(30px, 30px);
+                color: #cd6799;
+                // padding-bottom: 0.1rem;
+            }
+
+            img {
+                margin: 0.5rem;
+            }
+        }
     }
 
-    .bootstrap-icon {
-        @include icon-size(33px, 35px);
-    }
-
-    .header-text {
-        margin-top: 1rem;
+    nav .header-text {
+        justify-content: end;
+        // height: 100%;
+        margin-top: 0.8rem;
         margin-right: 1rem;
 
         span {
@@ -27,4 +44,5 @@ nav.header-container {
             color: $text-color;
         }
     }
+
 }
