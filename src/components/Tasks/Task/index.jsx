@@ -8,7 +8,7 @@ import './styles.scss';
 export default function Task({ id, title, status, setTask, removeTask }) {
   return (
     <div className='task-container'>
-      <div>
+      <div className='title'>
         <h3>{title.toUpperCase()}</h3>
       </div>
       <div className='task-info'>
