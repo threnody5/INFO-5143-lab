@@ -1,0 +1,8 @@
+@import './../../styles/variables.scss';
+
+.card-container {
+    border-radius: 3px;
+    background-color: $backdrop-color;
+    margin-left: auto;
+    margin-right: auto;
+}
