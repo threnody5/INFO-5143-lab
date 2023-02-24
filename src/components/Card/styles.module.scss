@@ -1,0 +1,15 @@
+@import './../../styles/variables.scss';
+
+.cardContainer {
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dark {
+    background-color: $dark-backdrop-color;
+}
+
+.light {
+    background-color: $light-backdrop-color;
+}
