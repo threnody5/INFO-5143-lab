@@ -2,9 +2,6 @@
 
 import './styles.scss';
 
-import reactIcon from '../../icons/React-icon.png';
-import bootstrapIcon from '../../icons/Bootstrap-icon.png';
-
 import { SiSass } from 'react-icons/si';
 import { FaReact } from 'react-icons/fa';
 
