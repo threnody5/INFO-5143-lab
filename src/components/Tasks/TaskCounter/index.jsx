@@ -1,5 +1,9 @@
 /** @format */
 
+import './styles.scss';
+
+import Card from '../../Card';
+
 import { useState, useEffect } from 'react';
 
 const TaskCounter = ({ tasks }) => {
@@ -35,7 +39,8 @@ const TaskCounter = ({ tasks }) => {
     setCompletedStatusCount(completedTasks);
   }, [tasks]);
   return (
-    <div>
+    <Card className='task-counter-container'>
+      {/* <div className='task-counter-container'> */}
       <h1>{displayedTasks}</h1>
       {/* If tasks has a length greater than 0, renders the amount of open tasks, */}
       {/* and completed tasks */}
@@ -45,7 +50,8 @@ const TaskCounter = ({ tasks }) => {
           <h3>Completed Tasks: {completedStatusCount}</h3>
         </div>
       )}
-    </div>
+      {/* </div> */}
+    </Card>
   );
 };
 
