@@ -114,12 +114,6 @@ function App() {
         <Header />
       </div>
       <div>
-        <Tasks
-          tasks={tasks}
-          setTasks={setTasks}
-        />
-      </div>
-      <div>
         <Form
           description={description}
           setDescription={setDescription}
@@ -128,6 +122,12 @@ function App() {
           statusList={statusList}
           addTask={addTask}
           errorMessage={errorMessage}
+        />
+      </div>
+      <div>
+        <Tasks
+          tasks={tasks}
+          setTasks={setTasks}
         />
       </div>
     </div>
