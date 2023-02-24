@@ -1,0 +1,96 @@
+@import './../../../styles/variables.scss';
+
+.taskContainer {
+    width: 100%;
+    padding: 1rem 0 1rem 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    .titleContainer {
+        width: calc(100% - 2rem);
+        display: flex;
+        font-size: 26px;
+        margin-top: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .titleText {
+        max-width: 100%;
+        width: 25rem;
+    }
+
+    .taskId {
+        font-weight: bold;
+        padding-left: 0.2rem;
+    }
+
+    .taskStatus {
+        padding-left: 0.2rem;
+    }
+
+    .taskInfo {
+        margin-bottom: 0.5rem;
+        margin-left: 2rem;
+    }
+
+    .buttonContainer {
+        margin-top: 0.5rem;
+        display: flex;
+        justify-content: center;
+
+        .statusButton {
+            margin-right: 0.5rem;
+        }
+
+        .removeButton {
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.dark {
+    .titleText {
+        color: $dark-title-color;
+    }
+
+    .taskInfo {
+        color: $dark-text-color;
+    }
+
+    .taskId {
+        color: $dark-id-color;
+    }
+
+    .statusButton {
+        @include button($dark-success-color, $dark-text-color);
+    }
+
+    .removeButton {
+        @include button($dark-danger-color, $dark-text-color);
+    }
+}
+
+.light {
+    .titleText {
+        color: $light-title-color;
+    }
+
+    .taskInfo {
+        color: $light-text-color;
+    }
+
+    .taskId {
+        color: $light-id-color;
+    }
+
+    .statusButton {
+        @include button($light-success-color, $light-text-color);
+    }
+
+    .removeButton {
+        @include button($light-danger-color, $light-text-color);
+    }
+}
