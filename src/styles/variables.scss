@@ -1,12 +1,22 @@
-$background-color: #0e051f;
-$backdrop-color: #2d3047;
-$title-color: #e2c044;
-$id-color: #0096c7;
-$text-color: #b1d0d3;
-$button-color: #2d82b7;
-$success-color: #629677;
-$warning-color: #cccc33;
-$danger-color: #c65353;
+$dark-background-color: #0e051f;
+$dark-backdrop-color: #2d3047;
+$dark-title-color: #e2c044;
+$dark-id-color: #0096c7;
+$dark-text-color: #b1d0d3;
+$dark-button-color: #2d82b7;
+$dark-success-color: #629677;
+$dark-warning-color: #cccc33;
+$dark-danger-color: #c65353;
+
+$light-background-color: #101113;
+$light-backdrop-color: #212529;
+$light-title-color: #c92a2a;
+$light-id-color: #a61e4d;
+$light-text-color: #862e9c;
+$light-button-color: #5f3dc4;
+$light-success-color: #364fc7;
+$light-warning-color: #1864ab;
+$light-danger-color: #0b7285;
 
 @mixin icon-size($height, $width) {
     height: $height;
@@ -32,12 +42,12 @@ $danger-color: #c65353;
     }
 }
 
-@mixin button($bg-color) {
+@mixin button($dark-bg-color) {
     border: none;
     padding: 0.7rem;
     border-radius: 3px;
     font-size: 18px;
     font-weight: bold;
-    background-color: $bg-color;
-    color: $backdrop-color;
+    // background-color: $bg-color;
+    // color: $backdrop-color;
 }

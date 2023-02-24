@@ -1,6 +1,10 @@
 /** @format */
 
-import './styles.scss';
+import styles from './styles.module.scss';
+import { useContext } from 'react';
+
+import ThemeToggle from '../ThemeToggle';
+import { ThemeContext } from '../ThemeContext';
 
 import { SiSass } from 'react-icons/si';
 import { FaReact } from 'react-icons/fa';
@@ -9,14 +13,17 @@ import { FaReact } from 'react-icons/fa';
  * Component that renders the header navbar.
  */
 export default function Header() {
+  const { theme } = useContext(ThemeContext);
+
+  console.log(theme);
   return (
-    <div className='header-container'>
+    <div className={`${styles.header} ${styles[theme]}`}>
       <nav>
-        <div className='header-icons'>
-          <FaReact className='react-icon' />
-          <SiSass className='sass-icon' />
+        <div className={`${styles.headerIcons}`}>
+          <FaReact className={`${styles.reactIcon}`} />
+          <SiSass className={`${styles.sassIcon}`} />
         </div>
-        <div className='header-text'>
+        <div className={`${styles.headerText}`}>
           <span>
             <strong>Todo App</strong>
           </span>
@@ -24,6 +31,7 @@ export default function Header() {
             <strong>William Watson</strong>
           </span>
         </div>
+        <ThemeToggle />
       </nav>
     </div>
   );

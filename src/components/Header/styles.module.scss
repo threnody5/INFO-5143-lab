@@ -1,8 +1,6 @@
 @import './../../styles/variables.scss';
 
-div .header-container {
-
-    background-color: $backdrop-color;
+.header {
 
     nav {
         height: 3rem;
@@ -11,8 +9,8 @@ div .header-container {
         flex-direction: row;
         justify-content: space-between;
 
-        .header-icons {
-            .react-icon {
+        .headerIcons {
+            .reactIcon {
                 @include icon-size(30px, 30px);
                 color: #61dbfb;
                 padding-top: 0.5rem;
@@ -20,7 +18,7 @@ div .header-container {
                 margin-right: 1rem;
             }
 
-            .sass-icon {
+            .sassIcon {
                 @include icon-size(30px, 30px);
                 color: #cd6799;
             }
@@ -31,15 +29,24 @@ div .header-container {
         }
     }
 
-    nav .header-text {
+    nav .headerText {
         justify-content: end;
         margin-top: 0.8rem;
         margin-right: 1rem;
 
         span {
             margin: 1rem;
-            color: $text-color;
         }
-    }
 
+    }
+}
+
+.dark {
+    background-color: $dark-backdrop-color;
+    color: $dark-text-color;
+}
+
+.light {
+    background-color: $light-backdrop-color;
+    color: $light-text-color;
 }
