@@ -1,11 +1,43 @@
-$background-color: #e8f1f2;
+$background-color: #0e051f;
 $backdrop-color: #2d3047;
-$text-color: #e2c044;
+$title-color: #e2c044;
+$id-color: #0096c7;
+$text-color: #b1d0d3;
 $button-color: #2d82b7;
 $success-color: #629677;
+$warning-color: #cccc33;
+$danger-color: #c65353;
 
 @mixin icon-size($height, $width) {
     height: $height;
     width: $width;
     @content;
+}
+
+@mixin breakpoint($max-width) {
+    @media screen and (max-width: $max-width) {
+        @content;
+    }
+}
+
+@mixin breakpoint-small {
+    @include breakpoint(750px) {
+        @content;
+    }
+}
+
+@mixin breakpoint-large {
+    @include breakpoint(1200px) {
+        @content;
+    }
+}
+
+@mixin button($bg-color) {
+    border: none;
+    padding: 0.7rem;
+    border-radius: 3px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: $bg-color;
+    color: $backdrop-color;
 }
