@@ -2,12 +2,14 @@
 
 import './styles.scss';
 
+import Card from '../../Card';
+
 /**
  * Component that renders the Task.
  */
 export default function Task({ id, title, status, setTask, removeTask }) {
   return (
-    <div className='task-container'>
+    <Card className='task-container'>
       <div className='title'>
         <h3>{title.toUpperCase()}</h3>
       </div>
@@ -45,6 +47,6 @@ export default function Task({ id, title, status, setTask, removeTask }) {
           Remove Task
         </button>
       </div>
-    </div>
+    </Card>
   );
 }
