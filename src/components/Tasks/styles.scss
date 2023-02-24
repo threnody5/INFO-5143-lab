@@ -17,7 +17,7 @@ div.tasks {
     align-items: center;
 
     .clear-button {
-        @include button($warning-color);
+        // @include button($warning-color);
         margin-bottom: 1rem;
     }
 

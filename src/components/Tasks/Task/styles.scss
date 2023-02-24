@@ -9,7 +9,7 @@ div.task-container {
     h3 {
         width: calc(100% - 2rem);
         display: flex;
-        color: $title-color;
+        // color: $title-color;
         font-size: 26px;
         margin-top: 0;
         margin-left: 1rem;
@@ -23,11 +23,11 @@ div.task-container {
     }
 
     strong {
-        color: $text-color;
+        // color: $text-color;
     }
 
     .task-id {
-        color: $id-color;
+        // color: $id-color;
         font-weight: bold;
         padding-left: 0.2rem;
     }
@@ -47,12 +47,12 @@ div.task-container {
         justify-content: center;
 
         .status-button {
-            @include button($success-color);
+            // @include button($success-color);
             margin-right: 0.5rem;
         }
 
         .remove-button {
-            @include button($danger-color);
+            // @include button($danger-color);
             margin-left: 0.5rem;
         }
     }

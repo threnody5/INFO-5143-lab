@@ -8,7 +8,7 @@
 
     h2 {
         padding-top: 1rem;
-        color: $text-color;
+        // color: $text-color;
     }
 
     input[type='text'],
@@ -16,21 +16,21 @@
         box-sizing: border-box;
         border-top-right-radius: 3px;
         border-top-left-radius: 3px;
-        border: solid 1px $button-color;
-        background-color: $backdrop-color;
-        border-bottom: solid 5px $button-color;
-        color: $text-color;
+        // border: solid 1px $button-color;
+        // background-color: $backdrop-color;
+        // border-bottom: solid 5px $button-color;
+        // color: $text-color;
         width: 70%;
         margin: 0.5rem 0 0.5rem 0;
         padding: 0.5rem;
     }
 
     .form-description {
-        color: $text-color;
+        // color: $text-color;
     }
 
     .add-button {
-        @include button($button-color);
+        // @include button($button-color);
         padding-left: 2rem;
         padding-right: 2rem;
         margin-top: 0.5rem;
@@ -42,7 +42,7 @@
         margin: auto;
         padding-top: 1rem;
         padding-bottom: 1rem;
-        color: $danger-color;
+        // color: $danger-color;
         font-weight: bold;
 
         ul {
