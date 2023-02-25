@@ -1,14 +1,19 @@
 /** @format */
 
+import { useContext } from 'react';
+
+import { ThemeContext } from '../ThemeContext';
+
 import Task from './Task';
 import TaskCounter from './TaskCounter';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 /**
  * Component that renders the Tasks list.
  */
 export default function Tasks({ tasks, setTasks }) {
+  const { theme } = useContext(ThemeContext);
   /**
    * Handler function for setting the status of the selected task.
    * - Sets selected status to 'Completed' if task is 'Open'.
@@ -50,14 +55,14 @@ export default function Tasks({ tasks, setTasks }) {
   };
 
   return (
-    <>
+    <div className={`${styles[theme]}`}>
       <TaskCounter tasks={tasks} />
       {/* Maps through the tasks array and outputs each task */}
-      <div className='tasks'>
+      <div className={`${styles.tasks}`}>
         {tasks.map((mappedTask, key) => {
           return (
             <div
-              className='task'
+              className={`${styles.task}`}
               key={key}
             >
               <Task
@@ -72,11 +77,11 @@ export default function Tasks({ tasks, setTasks }) {
           );
         })}
       </div>
-      <div className='button-container'>
+      <div className={`${styles.buttonContainer}`}>
         {/* If the tasks length is greater than 0, renders the Clear Tasks button */}
         {tasks.length > 0 && (
           <button
-            className='clear-button'
+            className={`${styles.clearButton}`}
             onClick={() => {
               clearTasksHandler();
             }}
@@ -85,6 +90,6 @@ export default function Tasks({ tasks, setTasks }) {
           </button>
         )}
       </div>
-    </>
+    </div>
   );
 }

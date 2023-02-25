@@ -53,7 +53,7 @@
 
 .dark {
     .addButton {
-        @include button($dark-button-color, $dark-backdrop-color);
+        @include button($dark-button-color, $dark-button-text-color);
     }
 
     .header {
@@ -75,7 +75,7 @@
 
 .light {
     .addButton {
-        @include button($light-button-color, $light-backdrop-color);
+        @include button($light-button-color, $light-button-text-color);
     }
 
     .header {

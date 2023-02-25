@@ -11,14 +11,25 @@ div.tasks {
     }
 }
 
-.button-container {
+.buttonContainer {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .clear-button {
-        // @include button($warning-color);
+    .clearButton {
         margin-bottom: 1rem;
     }
 
+}
+
+.dark {
+    .clearButton {
+        @include button($dark-warning-color, $dark-button-text-color);
+    }
+}
+
+.light {
+    .clearButton {
+        @include button($light-warning-color, $light-button-text-color);
+    }
 }

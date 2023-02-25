@@ -9,7 +9,7 @@
     .titleContainer {
         width: calc(100% - 2rem);
         display: flex;
-        font-size: 26px;
+        font-size: 22px;
         margin-top: 0;
         margin-left: 1rem;
         margin-right: 1rem;
@@ -65,11 +65,11 @@
     }
 
     .statusButton {
-        @include button($dark-success-color, $dark-text-color);
+        @include button($dark-success-color, $dark-button-text-color);
     }
 
     .removeButton {
-        @include button($dark-danger-color, $dark-text-color);
+        @include button($dark-danger-color, $dark-button-text-color);
     }
 }
 
@@ -87,10 +87,10 @@
     }
 
     .statusButton {
-        @include button($light-success-color, $light-text-color);
+        @include button($light-success-color, $light-button-text-color);
     }
 
     .removeButton {
-        @include button($light-danger-color, $light-text-color);
+        @include button($light-danger-color, $light-button-text-color);
     }
 }
