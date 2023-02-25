@@ -1,15 +1,25 @@
 @import './../../../styles/variables.scss';
 
-.task-counter-container {
+.taskCounterContainer {
     max-width: 500px;
     display: flex;
     padding: 0.8rem 0 0.8rem 0;
     flex-direction: column;
     text-align: center;
-    // background-color: $backdrop-color;
 
     h1, h3 {
-        // color: $text-color;
         margin: 0.5rem;
+    }
+}
+
+.dark {
+    h1, h3 {
+        color: $dark-text-color;
+    }
+}
+
+.light {
+    h1, h3 {
+        color: $light-text-color;
     }
 }

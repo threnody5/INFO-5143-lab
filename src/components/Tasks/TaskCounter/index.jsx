@@ -1,12 +1,17 @@
 /** @format */
 
-import './styles.scss';
+import { useContext } from 'react';
+
+import { ThemeContext } from '../../ThemeContext';
+
+import styles from './styles.module.scss';
 
 import Card from '../../Card';
 
 import { useState, useEffect } from 'react';
 
 const TaskCounter = ({ tasks }) => {
+  const { theme } = useContext(ThemeContext);
   const [countTasks, setCountTasks] = useState();
   const [openStatusCount, setOpenStatusCount] = useState();
   const [completedStatusCount, setCompletedStatusCount] = useState();
@@ -39,18 +44,18 @@ const TaskCounter = ({ tasks }) => {
     setCompletedStatusCount(completedTasks);
   }, [tasks]);
   return (
-    <Card className='task-counter-container'>
-      {/* <div className='task-counter-container'> */}
-      <h1>{displayedTasks}</h1>
-      {/* If tasks has a length greater than 0, renders the amount of open tasks, */}
-      {/* and completed tasks */}
-      {tasks.length > 0 && (
-        <div>
-          <h3>Open Tasks: {openStatusCount}</h3>
-          <h3>Completed Tasks: {completedStatusCount}</h3>
-        </div>
-      )}
-      {/* </div> */}
+    <Card className={`${styles.taskCounterContainer}`}>
+      <div className={`${styles[theme]}`}>
+        <h1>{displayedTasks}</h1>
+        {/* If tasks has a length greater than 0, renders the amount of open tasks, */}
+        {/* and completed tasks */}
+        {tasks.length > 0 && (
+          <div>
+            <h3>Open Tasks: {openStatusCount}</h3>
+            <h3>Completed Tasks: {completedStatusCount}</h3>
+          </div>
+        )}
+      </div>
     </Card>
   );
 };
