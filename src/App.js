@@ -1,14 +1,18 @@
 /** @format */
 
-import { useState } from 'react';
+import styles from './styles/appStyles.module.scss';
+
+import { useState, useContext } from 'react';
 
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 import Form from './components/Form';
+import { ThemeContext } from './components/ThemeContext';
 
 import { v4 as uuid } from 'uuid';
 
 function App() {
+  const { theme } = useContext(ThemeContext);
   // List of hardcoded tasks.
   const [tasks, setTasks] = useState([
     {
@@ -109,26 +113,28 @@ function App() {
   };
 
   return (
-    <div>
-      <div>
-        <Header />
-      </div>
-      <div>
-        <Form
-          description={description}
-          setDescription={setDescription}
-          setSelectedValue={setSelectedValue}
-          selectedValue={selectedValue}
-          statusList={statusList}
-          addTask={addTask}
-          errorMessage={errorMessage}
-        />
-      </div>
-      <div>
-        <Tasks
-          tasks={tasks}
-          setTasks={setTasks}
-        />
+    <div className={`${styles[theme]}`}>
+      <div className={`${styles.appBackground}`}>
+        <div>
+          <Header />
+        </div>
+        <div>
+          <Form
+            description={description}
+            setDescription={setDescription}
+            setSelectedValue={setSelectedValue}
+            selectedValue={selectedValue}
+            statusList={statusList}
+            addTask={addTask}
+            errorMessage={errorMessage}
+          />
+        </div>
+        <div>
+          <Tasks
+            tasks={tasks}
+            setTasks={setTasks}
+          />
+        </div>
       </div>
     </div>
   );
