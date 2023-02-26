@@ -28,8 +28,8 @@ export default function Form({
   };
 
   return (
-    <Card className={`${styles.formContainer}`}>
-      <form className={`${styles[theme]}`}>
+    <Card className={`${styles.formContainer} ${styles[theme]}`}>
+      <form>
         <h2 className={`${styles.header} ${styles[theme]}`}>
           ADD A NEW TASK:{' '}
         </h2>
