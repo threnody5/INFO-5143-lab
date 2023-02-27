@@ -1,6 +1,7 @@
 @import './../../styles/variables.scss';
 
 div.tasks {
+    max-width: 1800px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
