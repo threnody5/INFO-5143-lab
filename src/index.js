@@ -1,6 +1,6 @@
 /** @format */
 
-import styles from './styles/styles.module.scss';
+// import styles from './styles/styles.module.scss';
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -8,7 +8,14 @@ import { ThemeProvider, ThemeContext } from './components/ThemeContext';
 
 const BackgroundManager = ({ children }) => {
   const { theme } = useContext(ThemeContext);
-  return <div className={`${styles[theme]}`}>{children}</div>;
+  return (
+    <div
+      theme={[theme]}
+      // className={`${styles[theme]}`}
+    >
+      {children}
+    </div>
+  );
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

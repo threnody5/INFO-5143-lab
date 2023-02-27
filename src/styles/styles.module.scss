@@ -7,46 +7,30 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  // background-color: $dark-background-color;
-  
-  // .dark {
-  //   // width: 100%;
-  //   // height: 100%;
-  //     background-color: $dark-background-color;
-  // }
-  
-  // .light {
-  //   // width: 100%;
-  //   // height: 100%;
-  //     background-color: $light-background-color;
-  // }
 }
 
-:root {
-  .dark {
-    background-color: $dark-background-color;
-  };
-  .light {
-    background-color: $light-background-color;
-  }
+[theme='dark'] {
+  @include transition;
+  background-color: $dark-background-color;
+  min-height: 100vh;
+}
+
+[theme='light'] {
+  @include transition;
+  background-color: $light-background-color;
+  min-height: 100vh;
 }
 
 // .dark {
+//   @include transition;
+//     background-color: $dark-background-color;
+//   min-height: 100vh;
 // }
 
-// .body {
-//   .dark {
-//     width: 100%;
-//     height: 100%;
-//       background-color: $dark-background-color;
-//   }
-  
-//   .light {
-//     width: 100%;
-//     height: 100%;
-//       background-color: $light-background-color;
-//   }
+// .light {
+//   @include transition;
+//   background-color: $light-background-color;
+//   min-height: 100vh;
 // }
 
 code {
