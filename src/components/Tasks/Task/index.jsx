@@ -1,17 +1,14 @@
 /** @format */
 
 import { useContext } from 'react';
-
 import { ThemeContext } from '../../ThemeContext';
-
 import styles from './styles.module.scss';
-
 import Card from '../../Card';
 
 /**
  * Component that renders the Task.
  */
-export default function Task({ id, title, status, setTask, removeTask }) {
+export default function Task({ id, title, status, task, setTask, removeTask }) {
   const { theme } = useContext(ThemeContext);
   return (
     <Card className={`${styles.taskContainer}`}>
@@ -29,7 +26,15 @@ export default function Task({ id, title, status, setTask, removeTask }) {
           <span
             className={`${styles.taskStatus}`}
             style={{ color: status === 'Completed' ? '#28a745' : '#ffc107' }}
+            //! TODO: enable rendering of different colors depending on status and theme selected.
+            // style={{
+            // color:
+            // status === 'Completed'
+            // ? `${styles[theme]} ${styles.taskStatus} ${styles.completed}`
+            // : `${styles[theme]} ${styles.taskStatus} ${styles.open}`,
+            // }}
           >
+            {/* {theme === 'Completed' ? completed : open} */}
             {status}
           </span>
         </div>

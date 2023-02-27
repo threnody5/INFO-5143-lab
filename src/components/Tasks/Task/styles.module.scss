@@ -52,6 +52,7 @@
 }
 
 .dark {
+    @include transition;
     .titleText {
         color: $dark-title-color;
     }
@@ -69,11 +70,22 @@
     }
 
     .removeButton {
-        @include button($dark-danger-color, $dark-button-text-color);
+        @include button($dark-warning-color, $dark-button-text-color);
     }
+
+    // .taskStatus {
+    //     .completed {
+    //         color: $dark-success-color;
+    //     }
+
+    //     .open {
+    //         color: $dark-warning-color;
+    //     }
+    // }
 }
 
 .light {
+    @include transition;
     .titleText {
         color: $light-title-color;
     }
@@ -91,6 +103,16 @@
     }
 
     .removeButton {
-        @include button($light-danger-color, $light-button-text-color);
+        @include button($light-warning-color, $light-button-text-color);
+    }
+
+    .taskStatus {
+        .completed {
+            color: $light-success-color;
+        }
+
+        .open {
+            color: $light-warning-color;
+        }
     }
 }
