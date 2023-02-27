@@ -1,7 +1,6 @@
 @import './../../styles/variables.scss';
 
 .header {
-
     height: 3rem;
 
     display: flex;
@@ -9,13 +8,16 @@
     justify-content: space-between;
 
     .headerIcons {
-        flex: 50;
-
         .reactIcon {
             @include icon-size(30px, 30px);
             padding-top: 0.5rem;
             margin-left: 1rem;
             margin-right: 1rem;
+
+            @include breakpoint-small {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
         }
 
         .sassIcon {
@@ -26,17 +28,33 @@
         img {
             margin: 0.5rem;
         }
+
+        @include breakpoint-large {
+            flex: 50 0 flex-grow;
+        }
     }
 
     .headerText {
-        justify-content: end;
-        margin-top: 0.8rem;
+        margin-top: 1rem;
         margin-right: 1rem;
 
         span {
             margin: 1rem;
         }
 
+        @include breakpoint-small {
+            margin: 0rem;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+
+            span {
+                margin: 0rem;
+                margin-bottom: 0.2rem;
+            }
+        }
     }
 }
 
