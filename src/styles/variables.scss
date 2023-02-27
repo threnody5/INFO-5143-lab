@@ -17,8 +17,13 @@ $light-text-color: #2C2E33;
 $light-button-text-color: #495057;
 $light-button-color: #4dabf7;
 $light-success-color: #4dabf7;
-$light-warning-color: #fa5252;
-$light-danger-color: #fab005;
+$light-warning-color: #fab005;
+$light-danger-color: #fa5252;
+
+@mixin transition {
+    transition: all 0.5s;
+    @content;
+}
 
 @mixin icon-size($height, $width) {
     height: $height;
@@ -45,6 +50,7 @@ $light-danger-color: #fab005;
 }
 
 @mixin button($bg-color, $color) {
+    @include transition;
     border: none;
     padding: 0.7rem;
     border-radius: 3px;
