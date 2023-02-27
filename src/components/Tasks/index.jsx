@@ -1,13 +1,10 @@
 /** @format */
 
+import styles from './styles.module.scss';
 import { useContext } from 'react';
-
 import { ThemeContext } from '../ThemeContext';
-
 import Task from './Task';
 import TaskCounter from './TaskCounter';
-
-import styles from './styles.module.scss';
 
 /**
  * Component that renders the Tasks list.

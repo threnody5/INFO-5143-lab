@@ -1,8 +1,8 @@
 /** @format */
 
+import styles from './styles/styles.module.scss';
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom/client';
-import styles from './styles/styles.module.scss';
 import App from './App';
 import { ThemeProvider, ThemeContext } from './components/ThemeContext';
 

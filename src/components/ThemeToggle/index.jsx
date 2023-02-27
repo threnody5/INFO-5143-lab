@@ -1,9 +1,8 @@
 /** @format */
 
-import { useContext } from 'react';
-
-import { ThemeContext } from '../ThemeContext';
 import styles from './styles.module.scss';
+import { useContext } from 'react';
+import { ThemeContext } from '../ThemeContext';
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
 
 const ThemeToggle = () => {
