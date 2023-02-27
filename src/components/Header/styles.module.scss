@@ -2,34 +2,33 @@
 
 .header {
 
-    nav {
-        height: 3rem;
+    height: 3rem;
 
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-        .headerIcons {
-            .reactIcon {
-                @include icon-size(30px, 30px);
-                color: #61dbfb;
-                padding-top: 0.5rem;
-                margin-left: 1rem;
-                margin-right: 1rem;
-            }
+    .headerIcons {
+        flex: 50;
 
-            .sassIcon {
-                @include icon-size(30px, 30px);
-                color: #cd6799;
-            }
+        .reactIcon {
+            @include icon-size(30px, 30px);
+            padding-top: 0.5rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
 
-            img {
-                margin: 0.5rem;
-            }
+        .sassIcon {
+            @include icon-size(30px, 30px);
+            color: #cd6799;
+        }
+
+        img {
+            margin: 0.5rem;
         }
     }
 
-    nav .headerText {
+    .headerText {
         justify-content: end;
         margin-top: 0.8rem;
         margin-right: 1rem;
@@ -42,11 +41,21 @@
 }
 
 .dark {
+    @include transition;
     background-color: $dark-backdrop-color;
     color: $dark-text-color;
+
+    .reactIcon {
+        color: #61dbfb;
+    }
 }
 
 .light {
+    @include transition;
     background-color: $light-backdrop-color;
     color: $light-text-color;
+
+    .reactIcon {
+        color: #0c7be2;
+    }
 }

@@ -2,10 +2,8 @@
 
 import styles from './styles.module.scss';
 import { useContext } from 'react';
-
 import ThemeToggle from '../ThemeToggle';
 import { ThemeContext } from '../ThemeContext';
-
 import { SiSass } from 'react-icons/si';
 import { FaReact } from 'react-icons/fa';
 
@@ -17,10 +15,12 @@ export default function Header() {
 
   console.log(theme);
   return (
-    <div className={`${styles.header} ${styles[theme]}`}>
-      <nav>
+    <div className={`${styles.themeToggle}`}>
+      <nav className={`${styles.header} ${styles[theme]}`}>
         <div className={`${styles.headerIcons}`}>
-          <FaReact className={`${styles.reactIcon}`} />
+          {/* React Icon */}
+          <FaReact className={`${styles[theme]} ${styles.reactIcon}`} />
+          {/* SASS Icon */}
           <SiSass className={`${styles.sassIcon}`} />
         </div>
         <div className={`${styles.headerText}`}>
