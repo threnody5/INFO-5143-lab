@@ -7,9 +7,11 @@
 }
 
 .dark {
+    @include transition;
     background-color: $dark-backdrop-color;
 }
 
 .light {
+    @include transition;
     background-color: $light-backdrop-color;
 }

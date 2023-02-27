@@ -13,12 +13,14 @@
 }
 
 .dark {
+    @include transition;
     h1, h3 {
         color: $dark-text-color;
     }
 }
 
 .light {
+    @include transition;
     h1, h3 {
         color: $light-text-color;
     }

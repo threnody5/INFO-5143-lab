@@ -2,17 +2,19 @@
 
 .themeButton {
     margin-top: 0.1rem;
-    margin-right: 0.1rem;
+    margin-right: 0.4rem;
     width: 3rem;
 }
 
 .dark {
+    @include transition;
     .themeButton {
         @include button($dark-background-color, $dark-warning-color)
     }
 }
 
 .light {
+    @include transition;
     .themeButton {
         @include button($light-background-color, $light-title-color)
     }

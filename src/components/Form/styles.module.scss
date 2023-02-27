@@ -52,6 +52,7 @@
 }
 
 .dark {
+    @include transition;
     .addButton {
         @include button($dark-button-color, $dark-button-text-color);
     }
@@ -74,6 +75,7 @@
 }
 
 .light {
+    @include transition;
     .addButton {
         @include button($light-button-color, $light-button-text-color);
     }

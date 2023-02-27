@@ -23,13 +23,15 @@ div.tasks {
 }
 
 .dark {
+    @include transition;
     .clearButton {
-        @include button($dark-warning-color, $dark-button-text-color);
+        @include button($dark-danger-color, $dark-button-text-color);
     }
 }
 
 .light {
+    @include transition;
     .clearButton {
-        @include button($light-warning-color, $light-button-text-color);
+        @include button($light-danger-color, $light-button-text-color);
     }
 }
