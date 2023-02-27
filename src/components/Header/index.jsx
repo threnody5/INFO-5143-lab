@@ -12,8 +12,6 @@ import { FaReact } from 'react-icons/fa';
  */
 export default function Header() {
   const { theme } = useContext(ThemeContext);
-
-  console.log(theme);
   return (
     <div className={`${styles.themeToggle}`}>
       <nav className={`${styles.header} ${styles[theme]}`}>
