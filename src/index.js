@@ -1,6 +1,7 @@
 /** @format */
 
 // import styles from './styles/styles.module.scss';
+import './styles/styles.module.scss';
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
