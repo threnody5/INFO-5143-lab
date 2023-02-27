@@ -49,6 +49,10 @@
             margin-left: 0.5rem;
         }
     }
+
+    @include breakpoint-small {
+        width: 90vw;
+    }
 }
 
 .dark {
