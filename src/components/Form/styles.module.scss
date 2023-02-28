@@ -1,9 +1,24 @@
 @import './../../styles/variables.scss';
 
+.formCardWrapper {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    @include breakpoint-small {
+        width: 90vw;
+    }
+
+    @include breakpoint-large {
+        width: 90vw;
+    }
+}
+
 .formContainer {
-    display: block;
+    align-items: center;
     text-align: center;
-    max-width: 600px;
+    width: 100%;
     margin-bottom: 1rem;
 
     .header {

@@ -53,7 +53,6 @@ export default function Tasks({ tasks, setTasks }) {
 
   return (
     <div className={`${styles[theme]}`}>
-      <TaskCounter tasks={tasks} />
       {/* Maps through the tasks array and outputs each task */}
       <div className={`${styles.tasks}`}>
         {tasks.map((mappedTask, key) => {

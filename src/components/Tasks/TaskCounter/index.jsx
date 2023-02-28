@@ -45,15 +45,17 @@ const TaskCounter = ({ tasks }) => {
   }, [tasks]);
   return (
     <Card className={`${styles.taskCounterContainer} ${styles[theme]}`}>
-      <h1>{displayedTasks}</h1>
-      {/* If tasks has a length greater than 0, renders the amount of open tasks, */}
-      {/* and completed tasks */}
-      {tasks.length > 0 && (
-        <div>
-          <h3>Open Tasks: {openStatusCount}</h3>
-          <h3>Completed Tasks: {completedStatusCount}</h3>
-        </div>
-      )}
+      <div className={`${styles.taskCounterInner}`}>
+        <h1>{displayedTasks}</h1>
+        {/* If tasks has a length greater than 0, renders the amount of open tasks, */}
+        {/* and completed tasks */}
+        {tasks.length > 0 && (
+          <div>
+            <h3>Open Tasks: {openStatusCount}</h3>
+            <h3>Completed Tasks: {completedStatusCount}</h3>
+          </div>
+        )}
+      </div>
     </Card>
   );
 };

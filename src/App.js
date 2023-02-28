@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Tasks from './components/Tasks';
 import Form from './components/Form';
 import { v4 as uuid } from 'uuid';
+import TaskCounter from './components/Tasks/TaskCounter';
+import styles from './styles/styles.module.scss';
 
 function App() {
   // List of hardcoded tasks.
@@ -108,25 +110,26 @@ function App() {
 
   return (
     <div>
+      <Header />
       <div>
-        <Header />
-      </div>
-      <div>
-        <Form
-          description={description}
-          setDescription={setDescription}
-          setSelectedValue={setSelectedValue}
-          selectedValue={selectedValue}
-          statusList={statusList}
-          addTask={addTask}
-          errorMessage={errorMessage}
-        />
-      </div>
-      <div>
-        <Tasks
-          tasks={tasks}
-          setTasks={setTasks}
-        />
+        <div className={`${styles.topWrapper}`}>
+          <Form
+            description={description}
+            setDescription={setDescription}
+            setSelectedValue={setSelectedValue}
+            selectedValue={selectedValue}
+            statusList={statusList}
+            addTask={addTask}
+            errorMessage={errorMessage}
+          />
+          <TaskCounter tasks={tasks} />
+        </div>
+        <div>
+          <Tasks
+            tasks={tasks}
+            setTasks={setTasks}
+          />
+        </div>
       </div>
     </div>
   );
