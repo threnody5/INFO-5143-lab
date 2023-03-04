@@ -5,6 +5,8 @@ import './styles/styles.module.scss';
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { store } from './store/store';
+import { Provider } from 'react-redux';
 // import { ThemeProvider, ThemeContext } from './components/ThemeContext';
 
 // const BackgroundManager = ({ children }) => {
@@ -24,7 +26,9 @@ root.render(
   <React.StrictMode>
     {/* <ThemeProvider> */}
     {/* <BackgroundManager> */}
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
     {/* </BackgroundManager> */}
     {/* </ThemeProvider> */}
   </React.StrictMode>
