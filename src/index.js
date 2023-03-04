@@ -2,34 +2,26 @@
 
 // import styles from './styles/styles.module.scss';
 import './styles/styles.module.scss';
-import React, { useContext } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import { ThemeProvider, ThemeContext } from './components/ThemeContext';
 
-// const BackgroundManager = ({ children }) => {
-//   const { theme } = useContext(ThemeContext);
-//   return (
-//     <div
-//       theme={[theme]}
-//       // className={`${styles[theme]}`}
-//     >
-//       {children}
-//     </div>
-//   );
-// };
+const BackgroundManager = ({ children }) => {
+  const theme = useSelector((state) => state.theme.value);
+  return <div theme={[theme]}>{children}</div>;
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <ThemeProvider> */}
-    {/* <BackgroundManager> */}
     <Provider store={store}>
-      <App />
+      <BackgroundManager>
+        <App />
+      </BackgroundManager>
     </Provider>
-    {/* </BackgroundManager> */}
-    {/* </ThemeProvider> */}
   </React.StrictMode>
 );

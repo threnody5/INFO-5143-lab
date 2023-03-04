@@ -1,16 +1,15 @@
 /** @format */
 
 import styles from './styles.module.scss';
-import { useContext } from 'react';
-import { ThemeContext } from '../ThemeContext';
 import Task from './Task';
-import TaskCounter from './TaskCounter';
+import { useSelector } from 'react-redux';
+// import TaskCounter from './TaskCounter';
 
 /**
  * Component that renders the Tasks list.
  */
 export default function Tasks({ tasks, setTasks }) {
-  const { theme } = useContext(ThemeContext);
+  const theme = useSelector((state) => state.theme.value);
   /**
    * Handler function for setting the status of the selected task.
    * - Sets selected status to 'Completed' if task is 'Open'.

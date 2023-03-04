@@ -1,17 +1,20 @@
 /** @format */
 
 import styles from './styles.module.scss';
-import { useContext } from 'react';
-import { ThemeContext } from '../ThemeContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTheme } from '../../utils/themeSlice';
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const theme = useSelector((state) => state.theme.value);
+  const dispatch = useDispatch();
   return (
     <div className={`${styles[theme]}`}>
       <button
         className={`${styles.themeButton}`}
-        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+        onClick={() =>
+          dispatch(toggleTheme(theme === 'light' ? 'dark' : 'light'))
+        }
       >
         {theme === 'light' ? <BsFillMoonStarsFill /> : <BsFillSunFill />}
       </button>

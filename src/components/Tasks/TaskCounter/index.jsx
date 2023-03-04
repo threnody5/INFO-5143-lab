@@ -1,14 +1,13 @@
 /** @format */
 
 import styles from './styles.module.scss';
-import { useContext } from 'react';
-import { ThemeContext } from '../../ThemeContext';
 import Card from '../../Card';
+import { useSelector } from 'react-redux';
 
 import { useState, useEffect } from 'react';
 
 const TaskCounter = ({ tasks }) => {
-  const { theme } = useContext(ThemeContext);
+  const theme = useSelector((state) => state.theme.value);
   const [countTasks, setCountTasks] = useState();
   const [openStatusCount, setOpenStatusCount] = useState();
   const [completedStatusCount, setCompletedStatusCount] = useState();

@@ -1,15 +1,14 @@
 /** @format */
 
-import { useContext } from 'react';
-import { ThemeContext } from '../../ThemeContext';
 import styles from './styles.module.scss';
 import Card from '../../Card';
+import { useSelector } from 'react-redux';
 
 /**
  * Component that renders the Task.
  */
 export default function Task({ id, title, status, task, setTask, removeTask }) {
-  const { theme } = useContext(ThemeContext);
+  const theme = useSelector((state) => state.theme.value);
   return (
     <Card className={`${styles.taskContainer}`}>
       <div className={`${styles[theme]}`}>

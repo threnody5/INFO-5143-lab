@@ -1,17 +1,16 @@
 /** @format */
 
 import styles from './styles.module.scss';
-import { useContext } from 'react';
 import ThemeToggle from '../ThemeToggle';
-import { ThemeContext } from '../ThemeContext';
 import { SiSass } from 'react-icons/si';
 import { FaReact } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 /**
  * Component that renders the header navbar.
  */
 export default function Header() {
-  const { theme } = useContext(ThemeContext);
+  const theme = useSelector((state) => state.theme.value);
   return (
     <div className={`${styles.themeToggle}`}>
       <nav className={`${styles.header} ${styles[theme]}`}>

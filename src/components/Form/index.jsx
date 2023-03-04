@@ -1,9 +1,8 @@
 /** @format */
 
 import styles from './styles.module.scss';
-import { useContext } from 'react';
-import { ThemeContext } from '../ThemeContext';
 import Card from '../Card';
+import { useSelector } from 'react-redux';
 
 /**
  * Component that renders the Form for the user.
@@ -19,7 +18,7 @@ export default function Form({
   selectedValue,
   errorMessage,
 }) {
-  const { theme } = useContext(ThemeContext);
+  const theme = useSelector((state) => state.theme.value);
   const handleChange = (e) => {
     setSelectedValue(e.target.value);
   };
