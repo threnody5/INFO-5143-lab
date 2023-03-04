@@ -1,6 +1,5 @@
 /** @format */
 
-// import styles from './styles/styles.module.scss';
 import './styles/styles.module.scss';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -8,7 +7,6 @@ import App from './App';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
 import { useSelector } from 'react-redux';
-// import { ThemeProvider, ThemeContext } from './components/ThemeContext';
 
 const BackgroundManager = ({ children }) => {
   const theme = useSelector((state) => state.theme.value);
