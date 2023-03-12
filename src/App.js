@@ -111,7 +111,7 @@ function App() {
   };
 
   return (
-    <div>
+    <>
       <Header />
       <Routes>
         <Route
@@ -147,7 +147,7 @@ function App() {
           element={<Help />}
         />
       </Routes>
-    </div>
+    </>
   );
 }
 
