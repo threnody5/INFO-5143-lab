@@ -7,6 +7,7 @@ import App from './App';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const BackgroundManager = ({ children }) => {
   const theme = useSelector((state) => state.theme.value);
@@ -18,7 +19,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BackgroundManager>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </BackgroundManager>
     </Provider>
   </React.StrictMode>
