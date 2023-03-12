@@ -1,16 +1,17 @@
 /** @format */
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './styles.module.scss';
 import { useSelector } from 'react-redux';
 
 const NavRouter = () => {
-  const theme = useSelector((state) => state.theme.themeValue);
+  const theme = useSelector((state) => state.theme.value);
+  console.log(theme);
   return (
     <nav className={`${styles.navContainer} ${styles[theme]}`}>
-      <Link to='/'>Tasks</Link>
-      <Link to='add-task'>Add a Task</Link>
-      <Link to='help'>Help</Link>
+      <NavLink to='/'>Tasks</NavLink>
+      <NavLink to='add-task'>Add a Task</NavLink>
+      <NavLink to='help'>Help</NavLink>
     </nav>
   );
 };
