@@ -13,11 +13,13 @@ import NavRouter from '../NavRouter';
 export default function Header() {
   const theme = useSelector((state) => state.theme.value);
   return (
-    <div className={`${styles.themeToggle}`}>
+    <>
       <nav className={`${styles.header} ${styles[theme]}`}>
         <div className={`${styles.headerIcons}`}>
           {/* React Icon */}
-          <FaReact className={`${styles[theme]} ${styles.reactIcon}`} />
+          <FaReact
+            className={`${styles[theme]} ${styles.reactIcon}`}
+          />
           {/* SASS Icon */}
           <SiSass className={`${styles.sassIcon}`} />
         </div>
@@ -34,6 +36,6 @@ export default function Header() {
         </div>
         <ThemeToggle />
       </nav>
-    </div>
+    </>
   );
 }
