@@ -5,6 +5,7 @@ import ThemeToggle from '../ThemeToggle';
 import { SiSass } from 'react-icons/si';
 import { FaReact } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import NavRouter from '../NavRouter';
 
 /**
  * Component that renders the header navbar.
@@ -19,6 +20,9 @@ export default function Header() {
           <FaReact className={`${styles[theme]} ${styles.reactIcon}`} />
           {/* SASS Icon */}
           <SiSass className={`${styles.sassIcon}`} />
+        </div>
+        <div>
+          <NavRouter />
         </div>
         <div className={`${styles.headerText}`}>
           <span>
