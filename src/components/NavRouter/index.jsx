@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 
 const NavRouter = () => {
   const theme = useSelector((state) => state.theme.value);
-  console.log(theme);
   return (
     <nav className={`${styles.navContainer} ${styles[theme]}`}>
       <NavLink to='/'>Tasks</NavLink>
