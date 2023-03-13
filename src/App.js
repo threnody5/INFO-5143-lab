@@ -106,7 +106,7 @@ function App() {
       ]);
       // Description and status values are both set to empty strings again to re-enable checks for the next task that's added.
       setDescription('');
-      setSelectedValue([0]);
+      setSelectedValue(statusList[0]);
     }
   };
 
