@@ -4,7 +4,7 @@
     width: 40%;
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    margin: 1rem auto 1rem auto;
 
     @include breakpoint-small {
         width: 90vw;
