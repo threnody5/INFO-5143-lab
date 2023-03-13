@@ -136,12 +136,12 @@ function App() {
               errorMessage={errorMessage}
             />
           }
-        >
-          <Route
-            path='taskcounter'
-            element={<TaskCounter tasks={tasks} />}
-          />
-        </Route>
+        />
+        <Route
+          path='task-counter'
+          element={<TaskCounter tasks={tasks} />}
+        />
+
         <Route
           path='help'
           element={<Help />}
