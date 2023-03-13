@@ -1,0 +1,21 @@
+@import './../../../styles/variables.scss';
+
+.changingStatus {
+    .dark {
+
+        h1,
+        p {
+            color: $dark-text-color;
+        }
+    }
+}
+
+.changingStatus {
+    .light {
+
+        h1,
+        p {
+            color: $light-text-color;
+        }
+    }
+}
