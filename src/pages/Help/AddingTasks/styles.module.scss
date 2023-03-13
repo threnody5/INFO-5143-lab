@@ -1,0 +1,21 @@
+@import './../../../styles/variables.scss';
+
+.addingTasks {
+    .dark {
+
+        h1,
+        li {
+            color: $dark-text-color;
+        }
+    }
+}
+
+.addingTasks {
+    .light {
+
+        h1,
+        li {
+            color: $light-text-color;
+        }
+    }
+}
