@@ -1,6 +1,7 @@
 /** @format */
 
 import Card from '../../components/Card';
+import HelpNavRouter from '../../components/HelpNavRouter';
 import styles from './styles.module.scss';
 import { useSelector } from 'react-redux';
 import { Link, Outlet } from 'react-router-dom';
@@ -12,7 +13,7 @@ const Help = () => {
       <div className={styles[theme]}>
         <Outlet />
         <div>
-          <Link to='adding-tasks'>Adding Tasks</Link>
+          <HelpNavRouter />
         </div>
       </div>
     </Card>
