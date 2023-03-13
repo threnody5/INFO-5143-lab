@@ -3,6 +3,7 @@
 import Card from '../../components/Card';
 import styles from './styles.module.scss';
 import { useSelector } from 'react-redux';
+import { Link, Outlet } from 'react-router-dom';
 
 const Help = () => {
   const theme = useSelector((state) => state.theme.value);
@@ -20,6 +21,12 @@ const Help = () => {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
+        <div>
+          <Outlet />
+        </div>
+        <div>
+          <Link to='adding-tasks'>Adding Tasks</Link>
+        </div>
       </div>
     </Card>
   );
