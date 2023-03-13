@@ -4,7 +4,7 @@ import Card from '../../components/Card';
 import HelpNavRouter from '../../components/HelpNavRouter';
 import styles from './styles.module.scss';
 import { useSelector } from 'react-redux';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 const Help = () => {
   const theme = useSelector((state) => state.theme.value);
@@ -12,7 +12,7 @@ const Help = () => {
     <Card className={`${styles.helpContainer}`}>
       <div className={styles[theme]}>
         <Outlet />
-        <div>
+        <div className={styles.helpNavRouterContainer}>
           <HelpNavRouter />
         </div>
       </div>
