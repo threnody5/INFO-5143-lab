@@ -4,6 +4,9 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 import Form from './components/Form';
+import AddingTasks from './pages/AddingTasks';
+import ChangingStatus from './pages/ChangingStatus';
+import RemovingTasks from './pages/RemovingTasks';
 import { v4 as uuid } from 'uuid';
 import TaskCounter from './components/Tasks/TaskCounter';
 import { Routes, Route } from 'react-router-dom';
@@ -145,7 +148,20 @@ function App() {
         <Route
           path='help'
           element={<Help />}
-        />
+        >
+          <Route
+            path='adding-tasks'
+            element={<AddingTasks />}
+          />
+          <Route
+            path='changing-status'
+            element={<ChangingStatus />}
+          />
+          <Route
+            path='removing-tasks'
+            element={<RemovingTasks />}
+          />
+        </Route>
       </Routes>
     </>
   );
