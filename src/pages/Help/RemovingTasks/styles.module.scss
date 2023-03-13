@@ -1,0 +1,21 @@
+@import './../../../styles/variables.scss';
+
+.removeTasks {
+    .dark {
+
+        h1,
+        li {
+            color: $dark-text-color;
+        }
+    }
+}
+
+.removeTasks {
+    .light {
+
+        h1,
+        li {
+            color: $light-text-color;
+        }
+    }
+}
