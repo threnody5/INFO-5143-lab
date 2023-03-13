@@ -5,27 +5,35 @@
 
     a {
         text-decoration: none;
-        // padding: 0 1.5rem 1.5rem 0;
         font-weight: bold;
+        padding: 0.5rem 0.7rem 0.5rem 0.7rem;
     }
-
 }
 
-.dark {
+nav.dark {
     a {
         color: $dark-text-color;
-        padding: 0 0.7rem 0rem 0.7rem;
-    }
 
-    .active {
-        padding: 0.5rem 0.7rem 0.5rem 0.7rem;
-        border-radius: 3px;
-        background-color: $dark-background-color;
+        &:hover {
+            background-color: $dark-button-text-color;
+            border-radius: 3px;
+        }
+
+        &.active {
+            border-radius: 3px;
+            background-color: $dark-background-color;
+        }
     }
 }
 
 .light {
     a {
         color: $light-text-color;
+
+        &:hover {
+            background-color: $light-button-text-color;
+            color: $dark-text-color;
+            border-radius: 3px;
+        }
     }
 }
