@@ -7,6 +7,7 @@ import Form from './components/Form';
 import AddingTasks from './pages/Help/AddingTasks';
 import ChangingStatus from './pages/Help/ChangingStatus';
 import RemovingTasks from './pages/Help/RemovingTasks';
+import HelpInformation from './pages/Help/HelpInformation';
 import { v4 as uuid } from 'uuid';
 import TaskCounter from './components/Tasks/TaskCounter';
 import { Routes, Route } from 'react-router-dom';
@@ -149,6 +150,10 @@ function App() {
           path='help'
           element={<Help />}
         >
+          <Route
+            path=''
+            element={<HelpInformation />}
+          />
           <Route
             path='adding-tasks'
             element={<AddingTasks />}
