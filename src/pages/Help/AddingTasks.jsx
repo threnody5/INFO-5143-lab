@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 const AddingTasks = () => {
   const theme = useSelector((state) => state.theme.value);
   return (
-    <main className={styles.addingTasks}>
-      <div className={styles[theme]}>
+    <main className={styles[theme]}>
+      <div className={styles.addingTasks}>
         <h1>How to Add Tasks</h1>
         <ol>
           <li>

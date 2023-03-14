@@ -23,20 +23,41 @@
     }
 
     .dark {
+        a {
+            color: $dark-button-color;
+        }
 
-        .helpNavRouterContainer {
-            a {
-                color: $dark-button-color;
-            }
+        h1 {
+            color: $dark-title-color;
+        }
+
+        li {
+            color: $dark-text-color;
+        }
+
+        h3,
+        p {
+            color: $dark-text-color;
         }
     }
 
     .light {
-
-        .helpNavRouterContainer {
-            a {
-                color: $light-button-color;
-            }
+        a {
+            color: $light-button-color;
         }
+
+        h1 {
+            color: $light-title-color;
+        }
+
+        li {
+            color: $light-text-color;
+        }
+
+        h3,
+        p {
+            color: $light-text-color;
+        }
+
     }
 }

@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 const RemovingTasks = () => {
   const theme = useSelector((state) => state.theme.value);
   return (
-    <main className={styles.removeTasks}>
-      <div className={styles[theme]}>
+    <main className={styles[theme]}>
+      <div className={styles.removeTasks}>
         <h1>How to remove tasks</h1>
         <ol>
           <li>

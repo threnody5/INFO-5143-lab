@@ -6,8 +6,8 @@ import styles from './styles.module.scss';
 const HelpInformation = () => {
   const theme = useSelector((state) => state.theme.value);
   return (
-    <main className={styles.helpInformationContainer}>
-      <div className={styles[theme]}>
+    <main className={styles[theme]}>
+      <div className={styles.helpInformationContainer}>
         <h1>Help</h1>
         <h3>This App helps to keep track of your tasks.</h3>
         <p>

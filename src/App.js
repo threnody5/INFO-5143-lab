@@ -12,7 +12,7 @@ import PageNotFound from './pages/PageNotFound';
 import { v4 as uuid } from 'uuid';
 import TaskCounter from './components/Tasks/TaskCounter';
 import { Routes, Route } from 'react-router-dom';
-import Help from './pages/Help';
+import HelpContainer from './pages/Help/HelpContainer';
 // import styles from './styles/styles.module.scss';
 
 function App() {
@@ -149,7 +149,7 @@ function App() {
 
         <Route
           path='help'
-          element={<Help />}
+          element={<HelpContainer />}
         >
           <Route
             path=''

@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 const ChangingStatus = () => {
   const theme = useSelector((state) => state.theme.value);
   return (
-    <main className={styles.changingStatus}>
-      <div className={styles[theme]}>
+    <main className={styles[theme]}>
+      <div className={styles.changingStatus}>
         <h1>How to Change the Status</h1>
         <p>
           Eu augue ut lectus arcu bibendum at varius vel pharetra. Imperdiet
