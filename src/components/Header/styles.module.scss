@@ -5,7 +5,6 @@
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 
     .headerIcons {
         .reactIcon {
@@ -34,6 +33,12 @@
         }
     }
 
+    .navWrapper {
+        margin: 0 0 0 1.5rem;
+        flex: 1;
+    }
+
+
     .headerText {
         margin-top: 1rem;
         margin-right: 1rem;
@@ -43,7 +48,7 @@
         }
 
         @include breakpoint-small {
-            margin: 0rem;
+            margin: 0 1rem 0 0;
             font-size: 14px;
             display: flex;
             flex-direction: column;

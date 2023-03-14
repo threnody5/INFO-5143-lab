@@ -17,13 +17,11 @@ export default function Header() {
       <nav className={`${styles.header} ${styles[theme]}`}>
         <div className={`${styles.headerIcons}`}>
           {/* React Icon */}
-          <FaReact
-            className={`${styles[theme]} ${styles.reactIcon}`}
-          />
+          <FaReact className={`${styles[theme]} ${styles.reactIcon}`} />
           {/* SASS Icon */}
           <SiSass className={`${styles.sassIcon}`} />
         </div>
-        <div>
+        <div className={styles.navWrapper}>
           <NavRouter />
         </div>
         <div className={`${styles.headerText}`}>
