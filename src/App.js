@@ -15,21 +15,6 @@ import HelpContainer from './pages/Help/HelpContainer';
 // import styles from './styles/styles.module.scss';
 
 function App() {
-  const statusList = [
-    {
-      status: 'Please select an option',
-      value: null,
-    },
-    {
-      status: 'Open',
-      value: false,
-    },
-    {
-      status: 'Completed',
-      value: true,
-    },
-  ];
-
   const [description, setDescription] = useState('');
   const [selectedValue, setSelectedValue] = useState('');
   const [errorMessage, setErrorMessage] = useState([]);
@@ -76,7 +61,7 @@ function App() {
       // ]);
       // Description and status values are both set to empty strings again to re-enable checks for the next task that's added.
       setDescription('');
-      setSelectedValue(statusList[0]);
+      // setSelectedValue(statusList[0]);
     }
   };
 
@@ -96,7 +81,7 @@ function App() {
               setDescription={setDescription}
               setSelectedValue={setSelectedValue}
               selectedValue={selectedValue}
-              statusList={statusList}
+              // statusList={statusList}
               addTask={addTask}
               errorMessage={errorMessage}
             />

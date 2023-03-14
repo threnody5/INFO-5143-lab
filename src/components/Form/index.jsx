@@ -14,11 +14,11 @@ export default function Form({
   description,
   setDescription,
   setSelectedValue,
-  statusList,
   selectedValue,
   errorMessage,
 }) {
   const theme = useSelector((state) => state.theme.value);
+  const statusList = useSelector((state) => state.statusList.list);
   const handleChange = (e) => {
     setSelectedValue(e.target.value);
   };
