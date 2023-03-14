@@ -1,0 +1,27 @@
+@import './../../../styles/variables.scss';
+
+.helpInformationContainer {
+    .dark {
+
+        h1 {
+            color: $dark-title-color;
+        }
+
+        h3,
+        p {
+            color: $dark-text-color;
+        }
+    }
+
+    .light {
+
+        h1 {
+            color: $light-title-color;
+        }
+
+        h3,
+        p {
+            color: $light-text-color;
+        }
+    }
+}

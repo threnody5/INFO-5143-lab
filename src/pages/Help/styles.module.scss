@@ -15,19 +15,14 @@
     .helpNavRouterContainer {
         display: flex;
         flex-direction: column;
+
         a {
-        text-decoration: none;
-        padding: 0.5rem 0 0 0;
+            text-decoration: none;
+            padding: 0.5rem 0 0 0;
         }
     }
 
     .dark {
-
-        h1,
-        h3,
-        p {
-            color: $dark-text-color;
-        }
 
         .helpNavRouterContainer {
             a {
@@ -37,12 +32,6 @@
     }
 
     .light {
-
-        h1,
-        h3,
-        p {
-            color: $light-text-color;
-        }
 
         .helpNavRouterContainer {
             a {

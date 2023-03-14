@@ -3,17 +3,21 @@
 .removeTasks {
     .dark {
 
-        h1,
+        h1 {
+            color: $dark-title-color;
+        }
+
         li {
             color: $dark-text-color;
         }
     }
-}
 
-.removeTasks {
     .light {
 
-        h1,
+        h1 {
+            color: $light-title-color;
+        }
+
         li {
             color: $light-text-color;
         }

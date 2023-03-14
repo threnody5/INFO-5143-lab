@@ -3,17 +3,21 @@
 .changingStatus {
     .dark {
 
-        h1,
+        h1 {
+            color: $dark-title-color;
+        }
+
         p {
             color: $dark-text-color;
         }
     }
-}
 
-.changingStatus {
     .light {
 
-        h1,
+        h1 {
+            color: $light-title-color;
+        }
+
         p {
             color: $light-text-color;
         }

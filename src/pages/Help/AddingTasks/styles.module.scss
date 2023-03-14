@@ -3,7 +3,10 @@
 .addingTasks {
     .dark {
 
-        h1,
+        h1 {
+            color: $dark-title-color;
+        }
+
         li {
             color: $dark-text-color;
         }
@@ -13,7 +16,10 @@
 .addingTasks {
     .light {
 
-        h1,
+        h1 {
+            color: $light-title-color;
+        }
+
         li {
             color: $light-text-color;
         }
