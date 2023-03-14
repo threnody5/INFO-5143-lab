@@ -2,7 +2,8 @@
 
 import styles from './styles.module.scss';
 import Task from './Task';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeTaskStatus } from './../../utils/redux/tasksSlice';
 // import TaskCounter from './TaskCounter';
 
 /**
@@ -11,6 +12,7 @@ import { useSelector } from 'react-redux';
 export default function Tasks({ setTasks }) {
   const theme = useSelector((state) => state.theme.value);
   let tasks = useSelector((state) => state.task.tasks);
+  const dispatch = useDispatch();
   /**
    * Handler function for setting the status of the selected task.
    * - Sets selected status to 'Completed' if task is 'Open'.
@@ -19,13 +21,21 @@ export default function Tasks({ setTasks }) {
    */
   const setTaskHandler = (id) => {
     const updatedTask = [...tasks];
-    updatedTask.forEach((selectedTask) => {
-      if (selectedTask.id === id) {
-        selectedTask.status =
-          selectedTask.status === 'Completed' ? 'Open' : 'Completed';
-      }
-    });
-    setTasks(updatedTask);
+
+    // const updatedTask = [...tasks];
+    // updatedTask.forEach((selectedTask) => {
+    //   if (selectedTask.id === id) {
+    //     selectedTask.status =
+    //       selectedTask.status === 'Completed' ? 'Open' : 'Completed';
+    //   }
+    // });
+
+    const data = {
+      id: id,
+      updatedTask: updatedTask,
+    };
+    dispatch(changeTaskStatus(data));
+    // setTasks(updatedTask);
   };
 
   /**
