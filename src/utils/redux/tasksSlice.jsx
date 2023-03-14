@@ -41,11 +41,16 @@ export const tasksSlice = createSlice({
   initialState: {
     tasks: initialTasks,
   },
-  //   reducers: {
-  // addTask: (state, action) => {
-  //   console.log('add tasks fires');
-  // },
-  //   },
+  reducers: {
+    addTask: (state, action) => {
+      const newTask = {
+        id: uuid(),
+        title: action.payload.title,
+        status: action.payload.status,
+      };
+      state.tasks.push(newTask);
+    },
+  },
 });
 
 export const { addTask } = tasksSlice.actions;
