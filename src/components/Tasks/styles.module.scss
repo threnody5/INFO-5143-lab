@@ -1,7 +1,6 @@
 @import './../../styles/variables.scss';
 
 div.tasks {
-    max-width: 1800px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -15,7 +14,6 @@ div.tasks {
 .buttonContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
 
     .clearButton {
         margin-bottom: 1rem;

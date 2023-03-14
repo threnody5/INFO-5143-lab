@@ -4,7 +4,16 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 import Form from './components/Form';
+import AddingTasks from './pages/Help/AddingTasks';
+import ChangingStatus from './pages/Help/ChangingStatus';
+import RemovingTasks from './pages/Help/RemovingTasks';
+import HelpInformation from './pages/Help/HelpInformation';
+import PageNotFound from './pages/PageNotFound';
 import { v4 as uuid } from 'uuid';
+import TaskCounter from './components/Tasks/TaskCounter';
+import { Routes, Route } from 'react-router-dom';
+import HelpContainer from './pages/Help/HelpContainer';
+// import styles from './styles/styles.module.scss';
 
 function App() {
   // List of hardcoded tasks.
@@ -102,33 +111,69 @@ function App() {
       ]);
       // Description and status values are both set to empty strings again to re-enable checks for the next task that's added.
       setDescription('');
-      setSelectedValue([0]);
+      setSelectedValue(statusList[0]);
     }
   };
 
   return (
-    <div>
-      <div>
-        <Header />
-      </div>
-      <div>
-        <Form
-          description={description}
-          setDescription={setDescription}
-          setSelectedValue={setSelectedValue}
-          selectedValue={selectedValue}
-          statusList={statusList}
-          addTask={addTask}
-          errorMessage={errorMessage}
+    <>
+      <Header />
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <Tasks
+              tasks={tasks}
+              setTasks={setTasks}
+            />
+          }
         />
-      </div>
-      <div>
-        <Tasks
-          tasks={tasks}
-          setTasks={setTasks}
+        <Route
+          path='add-task'
+          element={
+            <Form
+              description={description}
+              setDescription={setDescription}
+              setSelectedValue={setSelectedValue}
+              selectedValue={selectedValue}
+              statusList={statusList}
+              addTask={addTask}
+              errorMessage={errorMessage}
+            />
+          }
         />
-      </div>
-    </div>
+        <Route
+          path='task-counter'
+          element={<TaskCounter tasks={tasks} />}
+        />
+
+        <Route
+          path='help'
+          element={<HelpContainer />}
+        >
+          <Route
+            path=''
+            element={<HelpInformation />}
+          />
+          <Route
+            path='adding-tasks'
+            element={<AddingTasks />}
+          />
+          <Route
+            path='changing-status'
+            element={<ChangingStatus />}
+          />
+          <Route
+            path='removing-tasks'
+            element={<RemovingTasks />}
+          />
+        </Route>
+        <Route
+          path='*'
+          element={<PageNotFound />}
+        />
+      </Routes>
+    </>
   );
 }
 

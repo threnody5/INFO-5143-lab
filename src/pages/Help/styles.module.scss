@@ -1,0 +1,63 @@
+@import './../../styles/styles.module.scss';
+
+.helpContainer {
+    width: 60%;
+    margin: 1rem auto 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    h1,
+    h3 {
+        text-align: center;
+    }
+
+    .helpNavRouterContainer {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            text-decoration: none;
+            padding: 0.5rem 0 0 0;
+        }
+    }
+
+    .dark {
+        a {
+            color: $dark-button-color;
+        }
+
+        h1 {
+            color: $dark-title-color;
+        }
+
+        li {
+            color: $dark-text-color;
+        }
+
+        h3,
+        p {
+            color: $dark-text-color;
+        }
+    }
+
+    .light {
+        a {
+            color: $light-button-color;
+        }
+
+        h1 {
+            color: $light-title-color;
+        }
+
+        li {
+            color: $light-text-color;
+        }
+
+        h3,
+        p {
+            color: $light-text-color;
+        }
+
+    }
+}

@@ -1,13 +1,27 @@
 @import './../../../styles/variables.scss';
 
 .taskCounterContainer {
-    max-width: 500px;
+    width: 40%;
     display: flex;
-    padding: 0.8rem 0 0.8rem 0;
     flex-direction: column;
     text-align: center;
+    margin: 1rem auto 0 auto;
 
-    h1, h3 {
+    @include breakpoint-large {
+        width: 90%;
+    }
+
+    .taskCounterInner {
+        height: 50%;
+        padding: 4rem 0 4rem 0;
+
+        @include breakpoint-large {
+            padding: 3rem 0 3rem 0;
+        }
+    }
+
+    h1,
+    h3 {
         margin: 0.5rem;
     }
 
@@ -18,14 +32,21 @@
 
 .dark {
     @include transition;
-    h1, h3 {
+
+    h1 {
+        color: $dark-warning-color;
+    }
+
+    h3 {
         color: $dark-text-color;
     }
 }
 
 .light {
     @include transition;
-    h1, h3 {
+
+    h1,
+    h3 {
         color: $light-text-color;
     }
 }

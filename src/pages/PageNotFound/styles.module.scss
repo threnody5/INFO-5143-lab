@@ -1,0 +1,45 @@
+@import './../../styles/variables.scss';
+
+.pageNotFoundContainer {
+    margin-top: 1rem;
+    padding: 1rem 0 1.5rem 0;
+    width: 40%;
+    text-align: center;
+
+    p {
+        a {
+            text-decoration: none;
+            font-weight: bold;
+        }
+    }
+
+    .dark {
+        h1 {
+            color: $dark-title-color;
+        }
+
+        h3,
+        p {
+            color: $dark-text-color;
+
+            a {
+                color: $dark-button-color;
+            }
+        }
+    }
+
+    .light {
+        h1 {
+            color: $light-title-color;
+        }
+
+        h3,
+        p {
+            color: $light-text-color;
+
+            a {
+                color: $light-button-color;
+            }
+        }
+    }
+}
