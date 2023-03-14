@@ -9,47 +9,12 @@ import ChangingStatus from './pages/Help/ChangingStatus';
 import RemovingTasks from './pages/Help/RemovingTasks';
 import HelpInformation from './pages/Help/HelpInformation';
 import PageNotFound from './pages/PageNotFound';
-import { v4 as uuid } from 'uuid';
 import TaskCounter from './components/Tasks/TaskCounter';
 import { Routes, Route } from 'react-router-dom';
 import HelpContainer from './pages/Help/HelpContainer';
 // import styles from './styles/styles.module.scss';
 
 function App() {
-  // List of hardcoded tasks.
-  const [tasks, setTasks] = useState([
-    {
-      id: uuid(),
-      title: 'Change Jeep oil',
-      status: 'Open',
-    },
-    {
-      id: uuid(),
-      title: 'Clean the kitchen',
-      status: 'Open',
-    },
-    {
-      id: uuid(),
-      title: 'Rake the leaves',
-      status: 'Open',
-    },
-    {
-      id: uuid(),
-      title: 'Cut down that dead tree',
-      status: 'Open',
-    },
-    {
-      id: uuid(),
-      title: 'Clean the litter box',
-      status: 'Open',
-    },
-    {
-      id: uuid(),
-      title: 'Do laundry',
-      status: 'Open',
-    },
-  ]);
-
   const statusList = [
     {
       status: 'Please select an option',
@@ -101,14 +66,14 @@ function App() {
       }
 
       // If all checks are passed, tasks array is updated with the new task.
-      setTasks([
-        ...tasks,
-        {
-          id: uuid(),
-          title: description,
-          status: currentStatus,
-        },
-      ]);
+      // setTasks([
+      //   ...tasks,
+      //   {
+      //     id: uuid(),
+      //     title: description,
+      //     status: currentStatus,
+      //   },
+      // ]);
       // Description and status values are both set to empty strings again to re-enable checks for the next task that's added.
       setDescription('');
       setSelectedValue(statusList[0]);
@@ -121,12 +86,7 @@ function App() {
       <Routes>
         <Route
           path='/'
-          element={
-            <Tasks
-              tasks={tasks}
-              setTasks={setTasks}
-            />
-          }
+          element={<Tasks />}
         />
         <Route
           path='add-task'
@@ -144,7 +104,7 @@ function App() {
         />
         <Route
           path='task-counter'
-          element={<TaskCounter tasks={tasks} />}
+          element={<TaskCounter />}
         />
 
         <Route

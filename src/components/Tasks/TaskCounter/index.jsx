@@ -6,8 +6,9 @@ import { useSelector } from 'react-redux';
 
 import { useState, useEffect } from 'react';
 
-const TaskCounter = ({ tasks }) => {
+const TaskCounter = () => {
   const theme = useSelector((state) => state.theme.value);
+  const tasks = useSelector((state) => state.task.tasks);
   const [countTasks, setCountTasks] = useState();
   const [openStatusCount, setOpenStatusCount] = useState();
   const [completedStatusCount, setCompletedStatusCount] = useState();

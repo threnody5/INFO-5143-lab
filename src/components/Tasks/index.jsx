@@ -8,8 +8,9 @@ import { useSelector } from 'react-redux';
 /**
  * Component that renders the Tasks list.
  */
-export default function Tasks({ tasks, setTasks }) {
+export default function Tasks({ setTasks }) {
   const theme = useSelector((state) => state.theme.value);
+  let tasks = useSelector((state) => state.task.tasks);
   /**
    * Handler function for setting the status of the selected task.
    * - Sets selected status to 'Completed' if task is 'Open'.
