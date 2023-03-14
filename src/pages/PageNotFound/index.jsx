@@ -12,7 +12,9 @@ const PageNotFound = () => {
       <main className={styles[theme]}>
         <h1>Page not found</h1>
         <h3>We were unable to locate that page.</h3>
-        Head back to <Link to='/'>Tasks</Link> page.
+        <p>
+          Head back to <Link to='/'>Tasks</Link> page.
+        </p>
       </main>
     </Card>
   );
