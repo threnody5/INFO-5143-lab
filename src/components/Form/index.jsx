@@ -4,6 +4,7 @@ import styles from './styles.module.scss';
 import Card from '../Card';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { addTask } from '../../utils/redux/tasksSlice';
 
 /**
  * Component that renders the Form for the user.
@@ -28,8 +29,7 @@ export default function Form() {
    * - Status is required.
    * - If all checks are passed, new task is added to task list.
    */
-  const addTask = (e) => {
-    console.log(e);
+  const addTaskHandler = (e) => {
     e.preventDefault();
     const validate = [];
     // Checks for description variable string length, if length is 0, then it pushes the message to the validate array.
@@ -74,7 +74,7 @@ export default function Form() {
     <Card className={`${styles.formCardWrapper}`}>
       <form
         className={`${styles.formContainer} ${styles[theme]}`}
-        // onSubmit={addTask}
+        onSubmit={addTaskHandler}
       >
         <h2 className={`${styles.header} ${styles[theme]}`}>
           ADD A NEW TASK:{' '}
@@ -127,12 +127,7 @@ export default function Form() {
               </label>
             </span>
             <div className={`${styles.addButtonContainer}`}>
-              <button
-                className={`${styles.addButton}`}
-                onClick={addTask}
-              >
-                Add
-              </button>
+              <button className={`${styles.addButton}`}>Add</button>
             </div>
           </div>
         </div>
