@@ -9,7 +9,6 @@ export default function Task({
   id,
   title,
   status,
-  task,
   setTask,
   removeTask,
 }) {
