@@ -1,7 +1,10 @@
 import styles from './styles.module.scss';
 import Task from './Task';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeTaskStatus } from './../../utils/redux/tasksSlice';
+import {
+  changeTaskStatus,
+  removeTask,
+} from './../../utils/redux/tasksSlice';
 
 /**
  * Component that renders the Tasks list.
@@ -42,7 +45,7 @@ export default function Tasks({ setTasks }) {
     const filteredTasks = tasks.filter(
       (selectedTask) => selectedTask.id !== id
     );
-    setTasks(filteredTasks);
+    dispatch(removeTask(filteredTasks));
   };
 
   /**
