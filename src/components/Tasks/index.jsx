@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   changeTaskStatus,
   removeTask,
+  clearTasks,
 } from './../../utils/redux/tasksSlice';
 
 /**
@@ -55,7 +56,7 @@ export default function Tasks({ setTasks }) {
    */
   const clearTasksHandler = () => {
     const clearedTasks = [];
-    setTasks(clearedTasks);
+    dispatch(clearTasks(clearedTasks));
   };
 
   return (
