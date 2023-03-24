@@ -51,21 +51,11 @@ export const tasksSlice = createSlice({
       state.tasks.push(newTask);
     },
     changeTaskStatus: (state, action) => {
-      action.payload.updatedTask.forEach((selectedTask) => {
-        if (selectedTask.id === action.payload.id) {
-          state.status =
-            selectedTask.status === 'Completed' ? 'Open' : 'Completed';
-          console.log(state.status);
+      state.tasks.forEach((task) => {
+        if (task.id === action.payload.id) {
+          task.status = action.payload.updatedTask;
         }
       });
-      // action.payload.updatedTask.forEach((selectedTask) => {
-      // if (selectedTask.id === action.id) {
-      // selectedTask.status =
-      // selectedTask.status === 'Completed' ? 'Open' : 'Completed';
-      // console.log(selectedTask);
-      // }
-      // state.tasks.push(updatedTask);
-      // });
     },
   },
 });

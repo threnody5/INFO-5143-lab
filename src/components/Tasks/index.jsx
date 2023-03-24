@@ -1,10 +1,7 @@
-/** @format */
-
 import styles from './styles.module.scss';
 import Task from './Task';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeTaskStatus } from './../../utils/redux/tasksSlice';
-// import TaskCounter from './TaskCounter';
 
 /**
  * Component that renders the Tasks list.
@@ -22,20 +19,17 @@ export default function Tasks({ setTasks }) {
   const setTaskHandler = (id) => {
     const updatedTask = [...tasks];
 
-    // const updatedTask = [...tasks];
-    // updatedTask.forEach((selectedTask) => {
-    //   if (selectedTask.id === id) {
-    //     selectedTask.status =
-    //       selectedTask.status === 'Completed' ? 'Open' : 'Completed';
-    //   }
-    // });
-
-    const data = {
-      id: id,
-      updatedTask: updatedTask,
-    };
-    dispatch(changeTaskStatus(data));
-    // setTasks(updatedTask);
+    updatedTask.forEach((selectedTask) => {
+      if (selectedTask.id === id) {
+        const selectedTaskStatus =
+          selectedTask.status === 'Completed' ? 'Open' : 'Completed';
+        const data = {
+          id: id,
+          updatedTask: selectedTaskStatus,
+        };
+        dispatch(changeTaskStatus(data));
+      }
+    });
   };
 
   /**
