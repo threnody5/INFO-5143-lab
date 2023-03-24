@@ -1,5 +1,3 @@
-/** @format */
-
 import styles from './styles.module.scss';
 import ThemeToggle from '../ThemeToggle';
 import { SiSass } from 'react-icons/si';

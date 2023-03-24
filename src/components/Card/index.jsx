@@ -1,5 +1,3 @@
-/** @format */
-
 import styles from './styles.module.scss';
 import { useSelector } from 'react-redux';
 

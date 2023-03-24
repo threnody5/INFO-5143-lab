@@ -1,5 +1,3 @@
-/** @format */
-
 import styles from './styles.module.scss';
 import Card from '../../Card';
 import { useSelector } from 'react-redux';
@@ -7,13 +5,22 @@ import { useSelector } from 'react-redux';
 /**
  * Component that renders the Task.
  */
-export default function Task({ id, title, status, task, setTask, removeTask }) {
+export default function Task({
+  id,
+  title,
+  status,
+  task,
+  setTask,
+  removeTask,
+}) {
   const theme = useSelector((state) => state.theme.value);
   return (
     <Card className={`${styles.taskContainer}`}>
       <div className={`${styles[theme]}`}>
         <div className={`${styles.titleContainer}`}>
-          <h3 className={`${styles.titleText}`}>{title.toUpperCase()}</h3>
+          <h3 className={`${styles.titleText}`}>
+            {title.toUpperCase()}
+          </h3>
         </div>
         <div className={`${styles.taskInfo}`}>
           <strong>ID: </strong>
@@ -24,7 +31,9 @@ export default function Task({ id, title, status, task, setTask, removeTask }) {
           {/* Task status color changes depending on status state */}
           <span
             className={`${styles.taskStatus}`}
-            style={{ color: status === 'Completed' ? '#28a745' : '#ffc107' }}
+            style={{
+              color: status === 'Completed' ? '#28a745' : '#ffc107',
+            }}
             //! TODO: enable rendering of different colors depending on status and theme selected.
             // style={{
             // color:

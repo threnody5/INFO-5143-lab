@@ -1,5 +1,3 @@
-/** @format */
-
 import Card from '../../components/Card';
 import HelpNavRouter from '../../components/HelpNavRouter';
 import styles from './styles.module.scss';

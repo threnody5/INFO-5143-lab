@@ -1,6 +1,3 @@
-/** @format */
-
-// import { useState } from 'react';
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 import Form from './components/Form';
@@ -12,7 +9,6 @@ import PageNotFound from './pages/PageNotFound';
 import TaskCounter from './components/Tasks/TaskCounter';
 import { Routes, Route } from 'react-router-dom';
 import HelpContainer from './pages/Help/HelpContainer';
-// import styles from './styles/styles.module.scss';
 
 function App() {
   return (

@@ -10,7 +10,7 @@ import {
 /**
  * Component that renders the Tasks list.
  */
-export default function Tasks({ setTasks }) {
+export default function Tasks() {
   const theme = useSelector((state) => state.theme.value);
   let tasks = useSelector((state) => state.task.tasks);
   const dispatch = useDispatch();

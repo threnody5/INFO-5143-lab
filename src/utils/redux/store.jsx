@@ -1,5 +1,3 @@
-/** @format */
-
 import { configureStore } from '@reduxjs/toolkit';
 import themeReducer from './themeSlice';
 import tasksReducer from './tasksSlice';

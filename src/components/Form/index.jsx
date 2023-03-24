@@ -1,5 +1,3 @@
-/** @format */
-
 import styles from './styles.module.scss';
 import Card from '../Card';
 import { useSelector, useDispatch } from 'react-redux';

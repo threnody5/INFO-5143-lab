@@ -1,5 +1,3 @@
-/** @format */
-
 import styles from './styles.module.scss';
 import Card from '../../Card';
 import { useSelector } from 'react-redux';
@@ -35,7 +33,9 @@ const TaskCounter = () => {
     const currentTasks = tasks.filter((task) => task).length;
     setCountTasks(currentTasks);
     // Amount of open tasks.
-    const openTasks = tasks.filter((task) => task.status === 'Open').length;
+    const openTasks = tasks.filter(
+      (task) => task.status === 'Open'
+    ).length;
     setOpenStatusCount(openTasks);
     // Amount of completed tasks.
     const completedTasks = tasks.filter(
@@ -44,7 +44,9 @@ const TaskCounter = () => {
     setCompletedStatusCount(completedTasks);
   }, [tasks]);
   return (
-    <Card className={`${styles.taskCounterContainer} ${styles[theme]}`}>
+    <Card
+      className={`${styles.taskCounterContainer} ${styles[theme]}`}
+    >
       <div className={`${styles.taskCounterInner}`}>
         <h1>{displayedTasks}</h1>
         {/* If tasks has a length greater than 0, renders the amount of open tasks, */}

@@ -1,5 +1,3 @@
-/** @format */
-
 import styles from './styles.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleTheme } from './../../utils/redux/themeSlice';
