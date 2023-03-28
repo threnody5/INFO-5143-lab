@@ -3,6 +3,7 @@ import Card from '../Card';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { addTask } from '../../utils/redux/tasksSlice';
+import * as database from './../../firebase';
 
 /**
  * Component that renders the Form for the user.
@@ -27,7 +28,7 @@ export default function Form() {
    * - Status is required.
    * - If all checks are passed, new task is added to task list.
    */
-  const addTaskHandler = (e) => {
+  const addTaskHandler = async (e) => {
     e.preventDefault();
     const validate = [];
     // Checks for description variable string length, if length is 0, then it pushes the message to the validate array.
@@ -60,6 +61,10 @@ export default function Form() {
         status: currentStatus,
       };
 
+      const savedID = await database.save(data);
+      console.log('Saved ID: ', savedID);
+      data.id = savedID;
+      console.log(data.id);
       dispatch(addTask(data));
 
       // Description and status values are both set to empty strings again to re-enable checks for the next task that's added.
