@@ -9,51 +9,68 @@ import PageNotFound from './pages/PageNotFound';
 import TaskCounter from './components/Tasks/TaskCounter';
 import { Routes, Route } from 'react-router-dom';
 import HelpContainer from './pages/Help/HelpContainer';
+import { useEffect, useState } from 'react';
+import * as database from './firebase';
+import { useDispatch } from 'react-redux';
+import { setTasks } from './utils/redux/tasksSlice';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    (async () => {
+      const data = await database.load();
+      dispatch(setTasks(data));
+      setIsLoading(false);
+    })();
+  });
   return (
     <>
       <Header />
-      <Routes>
-        <Route
-          path='/'
-          element={<Tasks />}
-        />
-        <Route
-          path='add-task'
-          element={<Form />}
-        />
-        <Route
-          path='task-counter'
-          element={<TaskCounter />}
-        />
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <Routes>
+          <Route
+            path='/'
+            element={<Tasks />}
+          />
+          <Route
+            path='add-task'
+            element={<Form />}
+          />
+          <Route
+            path='task-counter'
+            element={<TaskCounter />}
+          />
 
-        <Route
-          path='help'
-          element={<HelpContainer />}
-        >
           <Route
-            path=''
-            element={<HelpInformation />}
-          />
+            path='help'
+            element={<HelpContainer />}
+          >
+            <Route
+              path=''
+              element={<HelpInformation />}
+            />
+            <Route
+              path='adding-tasks'
+              element={<AddingTasks />}
+            />
+            <Route
+              path='changing-status'
+              element={<ChangingStatus />}
+            />
+            <Route
+              path='removing-tasks'
+              element={<RemovingTasks />}
+            />
+          </Route>
           <Route
-            path='adding-tasks'
-            element={<AddingTasks />}
+            path='*'
+            element={<PageNotFound />}
           />
-          <Route
-            path='changing-status'
-            element={<ChangingStatus />}
-          />
-          <Route
-            path='removing-tasks'
-            element={<RemovingTasks />}
-          />
-        </Route>
-        <Route
-          path='*'
-          element={<PageNotFound />}
-        />
-      </Routes>
+        </Routes>
+      )}
     </>
   );
 }

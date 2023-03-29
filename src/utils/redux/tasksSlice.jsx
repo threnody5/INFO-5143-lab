@@ -1,38 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { v4 as uuid } from 'uuid';
+// import { v4 as uuid } from 'uuid';
 
-const initialTasks = [
-  {
-    id: uuid(),
-    title: 'Change Jeep oil',
-    status: 'Open',
-  },
-  {
-    id: uuid(),
-    title: 'Clean the kitchen',
-    status: 'Open',
-  },
-  {
-    id: uuid(),
-    title: 'Rake the leaves',
-    status: 'Open',
-  },
-  {
-    id: uuid(),
-    title: 'Cut down that dead tree',
-    status: 'Open',
-  },
-  {
-    id: uuid(),
-    title: 'Clean the litter box',
-    status: 'Open',
-  },
-  {
-    id: uuid(),
-    title: 'Do laundry',
-    status: 'Open',
-  },
-];
+const initialTasks = [];
 
 export const tasksSlice = createSlice({
   name: 'task',
@@ -56,9 +25,17 @@ export const tasksSlice = createSlice({
     clearTasks: (state, action) => {
       state.tasks = action.payload;
     },
+    setTasks: (state, action) => {
+      state.tasks = action.payload;
+    },
   },
 });
 
-export const { addTask, changeTaskStatus, removeTask, clearTasks } =
-  tasksSlice.actions;
+export const {
+  addTask,
+  changeTaskStatus,
+  removeTask,
+  clearTasks,
+  setTasks,
+} = tasksSlice.actions;
 export default tasksSlice.reducer;
