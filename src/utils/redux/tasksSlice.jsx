@@ -41,12 +41,6 @@ export const tasksSlice = createSlice({
   },
   reducers: {
     addTask: (state, action) => {
-      // const newTask = {
-      // id: uuid(),
-      // title: action.payload.title,
-      // status: action.payload.status,
-      // };
-
       state.tasks.push(action.payload);
     },
     changeTaskStatus: (state, action) => {

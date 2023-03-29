@@ -62,9 +62,8 @@ export default function Form() {
       };
 
       const savedID = await database.save(data);
-      console.log('Saved ID: ', savedID);
-      data.id = savedID;
-      console.log(data.id);
+      const id = savedID.id;
+      data.id = id;
       dispatch(addTask(data));
 
       // Description and status values are both set to empty strings again to re-enable checks for the next task that's added.
