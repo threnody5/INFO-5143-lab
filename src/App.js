@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react';
 import * as database from './firebase';
 import { useDispatch } from 'react-redux';
 import { setTasks } from './utils/redux/tasksSlice';
+import Loading from './components/Loading';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +29,7 @@ function App() {
     <>
       <Header />
       {isLoading ? (
-        <div>Loading...</div>
+        <Loading />
       ) : (
         <Routes>
           <Route
