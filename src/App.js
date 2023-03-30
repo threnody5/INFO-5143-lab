@@ -23,7 +23,7 @@ function App() {
       dispatch(setTasks(data));
       setIsLoading(false);
     })();
-  });
+  }, [dispatch]);
   return (
     <>
       <Header />

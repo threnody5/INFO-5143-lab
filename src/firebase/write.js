@@ -49,3 +49,16 @@ export async function remove(id) {
     throw new Error('Unable to remove the selected task.');
   }
 }
+
+/**
+ * Loops through the tasks list, returning each task and removing it from the database.
+ * @param {string} id
+ * Receives the ID provided from the tasks list.
+ */
+export async function removeAll(id) {
+  try {
+    await deleteDoc(doc(db, 'tasks', id));
+  } catch {
+    throw new Error('Unable to remove all tasks from the database');
+  }
+}

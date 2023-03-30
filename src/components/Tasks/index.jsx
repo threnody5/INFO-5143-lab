@@ -56,8 +56,12 @@ export default function Tasks() {
    * Handler function for removing all tasks from the list.
    * - Creates a new empty array.
    * - Passes the empty array to the 'tasks' array.
+   * - Clears the tasks from the Firestore database.
    */
   const clearTasksHandler = () => {
+    tasks.forEach((task) => {
+      database.removeAll(task.id);
+    });
     const clearedTasks = [];
     dispatch(clearTasks(clearedTasks));
   };
