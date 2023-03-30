@@ -1,4 +1,10 @@
-import { collection, addDoc, doc, updateDoc } from 'firebase/firestore';
+import {
+  collection,
+  addDoc,
+  doc,
+  updateDoc,
+  deleteDoc,
+} from 'firebase/firestore';
 import { db } from './config';
 
 /**
@@ -16,7 +22,7 @@ export async function save(data) {
 /**
  * Changes the status of the task on the Firebase database.
  * @param {string} id
- * Receives the ID provided from the Firebase database.
+ * Receives the ID provided from the selected task.
  * @param {string} selectedTaskStatus
  * Receives the updated task of the status from the Task component.
  */
@@ -28,5 +34,18 @@ export async function update(id, selectedTaskStatus) {
     });
   } catch {
     throw new Error('Unable to update the selected task.');
+  }
+}
+
+/**
+ * Removes the task from the Firebase database that the user has selected.
+ * @param {string} id
+ * Receives the ID provided from the selected task.
+ */
+export async function remove(id) {
+  try {
+    await deleteDoc(doc(db, 'tasks', id));
+  } catch {
+    throw new Error('Unable to remove the selected task.');
   }
 }

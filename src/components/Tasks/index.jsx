@@ -48,6 +48,7 @@ export default function Tasks() {
     const filteredTasks = tasks.filter(
       (selectedTask) => selectedTask.id !== id
     );
+    database.remove(id);
     dispatch(removeTask(filteredTasks));
   };
 
