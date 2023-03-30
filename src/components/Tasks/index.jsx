@@ -6,6 +6,7 @@ import {
   removeTask,
   clearTasks,
 } from './../../utils/redux/tasksSlice';
+import * as database from './../../firebase';
 
 /**
  * Component that renders the Tasks list.
@@ -27,6 +28,7 @@ export default function Tasks() {
       if (selectedTask.id === id) {
         const selectedTaskStatus =
           selectedTask.status === 'Completed' ? 'Open' : 'Completed';
+        database.update(id, selectedTaskStatus);
         const data = {
           id: id,
           updatedTask: selectedTaskStatus,

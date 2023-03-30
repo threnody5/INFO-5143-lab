@@ -1,3 +1,3 @@
 export { db } from './config';
-export { save } from './write';
+export { save, update } from './write';
 export { load } from './read';
