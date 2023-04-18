@@ -14,6 +14,7 @@ export default function Tasks() {
   const theme = useSelector((state) => state.theme.value);
   let tasks = useSelector((state) => state.task.tasks);
   const dispatch = useDispatch();
+
   /**
    * Handler function for setting the status of the selected task.
    * - Sets selected status to 'Completed' if task is 'Open'.
@@ -26,7 +27,7 @@ export default function Tasks() {
     updatedTask.forEach((selectedTask) => {
       if (selectedTask.id === id) {
         const selectedTaskStatus =
-          selectedTask.status === 'Completed' ? 'Open' : 'Completed';
+          selectedTask.done === 'Completed' ? 'Open' : 'Completed';
         const data = {
           id: id,
           updatedTask: selectedTaskStatus,
@@ -72,8 +73,8 @@ export default function Tasks() {
               <Task
                 key={key}
                 id={mappedTask.id}
-                title={mappedTask.title}
-                status={mappedTask.status}
+                title={mappedTask.description}
+                status={mappedTask.done}
                 setTask={setTaskHandler}
                 removeTask={removeTaskHandler}
               />

@@ -5,21 +5,13 @@ import { useSelector } from 'react-redux';
 /**
  * Component that renders the Task.
  */
-export default function Task({
-  id,
-  title,
-  status,
-  setTask,
-  removeTask,
-}) {
+export default function Task({ id, title, status, setTask, removeTask }) {
   const theme = useSelector((state) => state.theme.value);
   return (
     <Card className={`${styles.taskContainer}`}>
       <div className={`${styles[theme]}`}>
         <div className={`${styles.titleContainer}`}>
-          <h3 className={`${styles.titleText}`}>
-            {title.toUpperCase()}
-          </h3>
+          <h3 className={`${styles.titleText}`}>{title.toUpperCase()}</h3>
         </div>
         <div className={`${styles.taskInfo}`}>
           <strong>ID: </strong>
