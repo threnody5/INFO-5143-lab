@@ -17,7 +17,7 @@ function App() {
     <>
       <Header />
       <Spinner show={false} />
-      <ErrorMessage error='Something went wrong' />
+      <ErrorMessage error='' />
       <Routes>
         <Route
           path='/'
