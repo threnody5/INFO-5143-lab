@@ -9,11 +9,15 @@ import PageNotFound from './pages/PageNotFound';
 import TaskCounter from './components/Tasks/TaskCounter';
 import { Routes, Route } from 'react-router-dom';
 import HelpContainer from './pages/Help/HelpContainer';
+import Spinner from './components/Spinner';
+import ErrorMessage from './components/ErrorMessage';
 
 function App() {
   return (
     <>
       <Header />
+      <Spinner show={false} />
+      <ErrorMessage error='Something went wrong' />
       <Routes>
         <Route
           path='/'
