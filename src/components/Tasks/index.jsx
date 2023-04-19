@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styles from './styles.module.scss';
 import Task from './Task';
 import { useSelector, useDispatch } from 'react-redux';
@@ -6,11 +7,14 @@ import {
   removeTask,
   clearTasks,
 } from './../../utils/redux/tasksSlice';
+import * as restAPI from './../../restapi';
+import ErrorMessage from '../ErrorMessage';
 
 /**
  * Component that renders the Tasks list.
  */
 export default function Tasks() {
+  const [error, setError] = useState('');
   const theme = useSelector((state) => state.theme.value);
   let tasks = useSelector((state) => state.task.tasks);
   const dispatch = useDispatch();
@@ -21,7 +25,8 @@ export default function Tasks() {
    * - Sets selected status to 'Open' if task is 'Completed'.
    * - Passes the updated array to the 'tasks' array.
    */
-  const setTaskHandler = (id) => {
+  const setTaskHandler = async (id) => {
+    // Update the state.
     const updatedTask = [...tasks];
 
     updatedTask.forEach((selectedTask) => {
@@ -34,7 +39,21 @@ export default function Tasks() {
         };
         dispatch(changeTaskStatus(data));
       }
+
+      // Update the server.
     });
+    const selectedTask = updatedTask.find((task) => task.id === id);
+    const selectedTaskStatus =
+      selectedTask.done === 'Completed' ? 'Open' : 'Completed';
+    const data = {
+      id: selectedTask.id,
+      description: selectedTask.description,
+      done: selectedTaskStatus,
+    };
+    const result = await restAPI.update(data);
+    if (!result.success) {
+      setError(result.error);
+    }
   };
 
   /**
@@ -43,11 +62,19 @@ export default function Tasks() {
    * - Passes objects that do not match to a new array.
    * -  Passes the updated array to the 'tasks' array.
    */
-  const removeTaskHandler = (id) => {
+  const removeTaskHandler = async (id) => {
+    // Update the state.
     const filteredTasks = tasks.filter(
       (selectedTask) => selectedTask.id !== id
     );
     dispatch(removeTask(filteredTasks));
+
+    // Update the server.
+    const result = await restAPI.deleteTask(id);
+    console.log('Result: ', result);
+    if (!result.success) {
+      setError(result.error);
+    }
   };
 
   /**
@@ -55,46 +82,53 @@ export default function Tasks() {
    * - Creates a new empty array.
    * - Passes the empty array to the 'tasks' array.
    */
-  const clearTasksHandler = () => {
+  const clearTasksHandler = async () => {
     const clearedTasks = [];
     dispatch(clearTasks(clearedTasks));
+    const result = await restAPI.deleteAll();
+    if (!result.success) {
+      setError(result.error);
+    }
   };
 
   return (
-    <div className={`${styles[theme]}`}>
-      {/* Maps through the tasks array and outputs each task */}
-      <div className={`${styles.tasks}`}>
-        {tasks.map((mappedTask, key) => {
-          return (
-            <div
-              className={`${styles.task}`}
-              key={key}
-            >
-              <Task
+    <>
+      <ErrorMessage error={error} />
+      <div className={`${styles[theme]}`}>
+        {/* Maps through the tasks array and outputs each task */}
+        <div className={`${styles.tasks}`}>
+          {tasks.map((mappedTask, key) => {
+            return (
+              <div
+                className={`${styles.task}`}
                 key={key}
-                id={mappedTask.id}
-                title={mappedTask.description}
-                status={mappedTask.done}
-                setTask={setTaskHandler}
-                removeTask={removeTaskHandler}
-              />
-            </div>
-          );
-        })}
+              >
+                <Task
+                  key={key}
+                  id={mappedTask.id}
+                  description={mappedTask.description}
+                  done={mappedTask.done}
+                  setTask={setTaskHandler}
+                  removeTask={removeTaskHandler}
+                />
+              </div>
+            );
+          })}
+        </div>
+        <div className={`${styles.buttonContainer}`}>
+          {/* If the tasks length is greater than 0, renders the Clear Tasks button */}
+          {tasks.length > 0 && (
+            <button
+              className={`${styles.clearButton}`}
+              onClick={() => {
+                clearTasksHandler();
+              }}
+            >
+              Clear Tasks
+            </button>
+          )}
+        </div>
       </div>
-      <div className={`${styles.buttonContainer}`}>
-        {/* If the tasks length is greater than 0, renders the Clear Tasks button */}
-        {tasks.length > 0 && (
-          <button
-            className={`${styles.clearButton}`}
-            onClick={() => {
-              clearTasksHandler();
-            }}
-          >
-            Clear Tasks
-          </button>
-        )}
-      </div>
-    </div>
+    </>
   );
 }

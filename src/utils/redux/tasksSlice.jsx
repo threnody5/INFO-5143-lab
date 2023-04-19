@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { v4 as uuid } from 'uuid';
+// import { v4 as uuid } from 'uuid';
 
 const initialTasks = [];
 
@@ -11,9 +11,9 @@ export const tasksSlice = createSlice({
   reducers: {
     addTask: (state, action) => {
       const newTask = {
-        id: uuid(),
-        title: action.payload.title,
-        status: action.payload.status,
+        // id: uuid(),
+        title: action.payload.description,
+        done: action.payload.done,
       };
       state.tasks.push(newTask);
     },

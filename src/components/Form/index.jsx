@@ -3,6 +3,10 @@ import Card from '../Card';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { addTask } from '../../utils/redux/tasksSlice';
+import * as restAPI from './../../restapi';
+import { v4 as uuid } from 'uuid';
+import ErrorMessage from '../ErrorMessage';
+import Spinner from '../Spinner';
 
 /**
  * Component that renders the Form for the user.
@@ -14,7 +18,8 @@ export default function Form() {
   const statusList = useSelector((state) => state.statusList.list);
   const [description, setDescription] = useState('');
   const [selectedValue, setSelectedValue] = useState('');
-  const [errorMessage, setErrorMessage] = useState([]);
+  const [error, setError] = useState('');
+  const [isSaving, setIsSaving] = useState(false);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -27,8 +32,9 @@ export default function Form() {
    * - Status is required.
    * - If all checks are passed, new task is added to task list.
    */
-  const addTaskHandler = (e) => {
+  const addTaskHandler = async (e) => {
     e.preventDefault();
+    setIsSaving(true);
     const validate = [];
     // Checks for description variable string length, if length is 0, then it pushes the message to the validate array.
     if (description.length === 0) {
@@ -38,48 +44,56 @@ export default function Form() {
     if (selectedValue !== 'true' && selectedValue !== 'false') {
       validate.push('Please select a status.');
     }
-    // Checks for the length of the validate array, if array length is greater than 0, it sets the error messages to the error message array.
-    if (validate.length > 0) {
-      setErrorMessage(validate);
-    } else {
-      // If there are no errors to display, it sets the error message array to a blank array to clear the previous error messages.
-      setErrorMessage([]);
 
-      let currentStatus;
-      // Uses boolean values to determine whether the currentStatus should be set to 'Open' or 'Completed'.
-      if (selectedValue === 'false') {
-        currentStatus = 'Open';
-      } else if (selectedValue === 'true') {
-        currentStatus = 'Completed';
-      }
-
-      // If all checks are passed, tasks array is updated with the new task.
-
-      const data = {
-        title: description,
-        status: currentStatus,
-      };
-
-      dispatch(addTask(data));
-
-      // Description and status values are both set to empty strings again to re-enable checks for the next task that's added.
-      setDescription('');
-      setSelectedValue(statusList[0]);
+    let currentStatus;
+    // Uses boolean values to determine whether the currentStatus should be set to 'Open' or 'Completed'.
+    if (selectedValue === 'false') {
+      currentStatus = 'Open';
+    } else if (selectedValue === 'true') {
+      currentStatus = 'Completed';
     }
+
+    // If all checks are passed, tasks array is updated with the new task.
+    const data = {
+      id: uuid(),
+      description: description,
+      done: currentStatus,
+    };
+
+    const result = await restAPI.add(data);
+
+    if (result.success) {
+      dispatch(addTask(data));
+      setError('');
+    } else {
+      setError(result.error);
+    }
+
+    // Description and status values are both set to empty strings again to re-enable checks for the next task that's added.
+    setIsSaving(false);
+    setDescription('');
+    setSelectedValue(statusList[0]);
   };
+  // };
 
   return (
-    <Card className={`${styles.formCardWrapper}`}>
-      <form
-        className={`${styles.formContainer} ${styles[theme]}`}
-        onSubmit={addTaskHandler}
-      >
-        <h2 className={`${styles.header} ${styles[theme]}`}>
-          ADD A NEW TASK:{' '}
-        </h2>
-        {/* Conditional rendering for displaying the list of errors to 
+    <>
+      <Spinner
+        show={isSaving}
+        text='Saving...'
+      />
+      <Card className={`${styles.formCardWrapper}`}>
+        <form
+          className={`${styles.formContainer} ${styles[theme]}`}
+          onSubmit={addTaskHandler}
+        >
+          <h2 className={`${styles.header} ${styles[theme]}`}>
+            ADD A NEW TASK:{' '}
+          </h2>
+          {/* Conditional rendering for displaying the list of errors to 
           the users if the errorMessage array has a length greater than 0 */}
-        {errorMessage.length > 0 && (
+          <ErrorMessage error={error} />
+          {/* {errorMessage.length > 0 && (
           <div className={`${styles.errorForm}`}>
             Missing Data:
             <ul>
@@ -88,48 +102,49 @@ export default function Form() {
               ))}
             </ul>
           </div>
-        )}
-        <div>
+        )} */}
           <div>
-            <label>
-              {/* Field that allows the user to enter in the description 
-              that they desire for the task they're adding */}
-              <input
-                title='Enter a description.'
-                type='text'
-                placeholder='Description here'
-                value={description}
-                onChange={(e) => {
-                  setDescription(e.target.value);
-                }}
-              />
-            </label>
-            <span>
+            <div>
               <label>
-                {/* Dropdown menu that allows the user to select 
-                if the task they're adding is 'Open' or 'Completed */}
-                <select
-                  title='Choose an option.'
-                  value={selectedValue}
-                  onChange={handleChange}
-                >
-                  {statusList.map((item, index) => (
-                    <option
-                      key={index}
-                      value={item.value}
-                    >
-                      {item.status}
-                    </option>
-                  ))}
-                </select>
+                {/* Field that allows the user to enter in the description 
+              that they desire for the task they're adding */}
+                <input
+                  title='Enter a description.'
+                  type='text'
+                  placeholder='Description here'
+                  value={description}
+                  onChange={(e) => {
+                    setDescription(e.target.value);
+                  }}
+                />
               </label>
-            </span>
-            <div className={`${styles.addButtonContainer}`}>
-              <button className={`${styles.addButton}`}>Add</button>
+              <span>
+                <label>
+                  {/* Dropdown menu that allows the user to select 
+                if the task they're adding is 'Open' or 'Completed */}
+                  <select
+                    title='Choose an option.'
+                    value={selectedValue}
+                    onChange={handleChange}
+                  >
+                    {statusList.map((item, index) => (
+                      <option
+                        key={index}
+                        value={item.value}
+                      >
+                        {item.status}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </span>
+              <div className={`${styles.addButtonContainer}`}>
+                <button className={`${styles.addButton}`}>Add</button>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </Card>
+        </form>
+      </Card>
+    </>
   );
 }
